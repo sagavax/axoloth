@@ -1,3 +1,12 @@
+const passwords = document.querySelector("#passwords");
+
+passwords.addEventListener("click", (event)=>{
+    if(event.target.tagName==="BUTTON"){
+        alert("Click!");
+    }
+})
+
+
 
 var mobile_menus = document.querySelectorAll(".mobile_menu");
 //console.log(mobile_menus);
@@ -6,6 +15,9 @@ for(i=0;i< mobile_menus.length;i++){
    var mobile_menu = mobile_menus[i];
     mobile_menu.addEventListener("click",toggleMenu,false);
 }
+
+
+
 
 
 /*const someInput = document.querySelector('button');
@@ -253,6 +265,7 @@ function hide_add_note(){
 
 function view_pass(id){
     window.location.href='password.php?id='+id;
+    //alert(id);
 }
 
 function edit_pass(id){

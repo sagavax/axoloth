@@ -1099,6 +1099,23 @@
                 height: 45px;
             }
 
+            .char_list {
+                display: flex;
+                gap:5px;
+                box-sizing: border-box;
+                padding:5px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .char_list button {
+                border-radius: 5px;
+            }
+
+            .char_list button:hover {
+                cursor: pointer;
+            }
+
             @media only screen and (max-width:767px) {
                 #right_panel {
                     display: none;

@@ -17,7 +17,9 @@ include "../include/functions.php";
     <link href="../css/passmgr.css?<?php echo time(); ?>" rel="stylesheet" type="text/css" />
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  
+	<script src="../js/index.js?<?php echo time(); ?>" defer></script>
+    <script src="../js/passmgr.js?<?php echo time(); ?>" defer></script>
+    <script type="text/javascript" src="../js/pass_note.js?<?php echo time(); ?>" defer></script>
     <link rel='shortcut icon' href='../a.png'>
     <title>axoloth - Passwords</title>
 
@@ -47,14 +49,14 @@ include '../include/header.php';
                     <!--<span><a href="password_add.php" class='flat-btn'>+ Add new</a></span> -->
                 </div>
 
-				<div class="char_lis">
+				<div class="char_list">
 					<?php 
 						 foreach (range('A', 'Z') as $char) {
-							echo "<button type='button' class='flat-btn'>$char</button>";
+							echo "<button type='button' class='btn-small'>$char</button>";
   
 						  }
-							echo "<button type='button' name='all''>All</button>";
-							echo "<button type='button' name='dupes'>Find dupes</a></li>"											
+							//echo "<button type='button' name='all''>All</button>";
+							//echo "<button type='button' name='dupes'>Find dupes</a></li>"											
 					?>
 				</div>	
 
@@ -197,9 +199,7 @@ if ($total_pages == 0) {
 
     </div><!-- layout --> <div style="clear:both"></div>
 
-    <script src="../js/index.js"></script>
-    <script src="../js/passmgr.js"></script>
-    <script type="text/javascript" src="../js/pass_note.js"></script>
+  
 
 
 </body>

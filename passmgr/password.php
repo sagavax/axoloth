@@ -1,8 +1,8 @@
 <?php session_start();
-$_SESSION['url'] = $_SERVER['REQUEST_URI'];
+/* $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 if (!isset($_SESSION['login'])) {
 	header("location:index.php");
-}
+} */
 
 ?>
 
@@ -19,7 +19,8 @@ if (!isset($_SESSION['login'])) {
     <link href="../css/tabs.css" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <script type="text/javascript" src="../js/pass_gen.js" defer></script>
+    <script src="../js/password.js"></script>
     <link rel='shortcut icon' href='../a.png'>
     <title>axoloth - Passwords</title>
 
@@ -124,7 +125,7 @@ while ($row_notes = mysqli_fetch_array($result_notes)) {
       <?php
 $actual_date = date('Y-m-d H:i:s');
 global $con;
-$sql = "UPDATE tblpasswords SET hits=hits+1, date_hit='$actual_date' WHERE PassID=" . $row['PassID'];
+$sql = "UPDATE tblpasswords SET hits=hits+1, date_hit=now() WHERE PassID=" . $row['PassID'];
 $result = mysqli_query($con, $sql);
 
 //logovanie visitora
@@ -149,12 +150,7 @@ $result = mysqli_query($con, $sql); // or die("MySQL ERROR: ".mysqli_error());
 ?>
   </div><!-- password_wrap -->
 </div><!--layout-->
-<script type="text/javascript" src="../js/pass_gen.js"></script>
-<script>
-  function goURL(url){
-    var url = document.getElementById("pass_url").value;
-    window.open(url);
-  }
 
-  document.getElementById("is_favorite").disabled = true
+<script>
+  
 </script>
