@@ -17,11 +17,7 @@ include "../include/functions.php";
     <link href="../css/passmgr.css?<?php echo time(); ?>" rel="stylesheet" type="text/css" />
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
-    <!-- <script src="Chart.js"></script> -->
-
-
-
+  
     <link rel='shortcut icon' href='../a.png'>
     <title>axoloth - Passwords</title>
 
@@ -50,6 +46,17 @@ include '../include/header.php';
                         <button class="flat-btn"><i class="fas fa-search"></i></button>
                     <!--<span><a href="password_add.php" class='flat-btn'>+ Add new</a></span> -->
                 </div>
+
+				<div class="char_lis">
+					<?php 
+						 foreach (range('A', 'Z') as $char) {
+							echo "<button type='button' class='flat-btn'>$char</button>";
+  
+						  }
+							echo "<button type='button' name='all''>All</button>";
+							echo "<button type='button' name='dupes'>Find dupes</a></li>"											
+					?>
+				</div>	
 
                 <div id="pass_tabs">
                 	<ul>
