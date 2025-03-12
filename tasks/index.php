@@ -111,7 +111,7 @@ echo list_of_task_cust(); //zoznam vsetkych zakaznikov, ktory maju nejaku note
 
             <div class="list_of_cats">
                 <?php
-echo list_of_task_cats(); //zoznam kategorii pri aktivnych taskoch
+//echo list_of_task_cats(); //zoznam kategorii pri aktivnych taskoch
  ?>
             </div>
 
@@ -134,7 +134,7 @@ echo list_of_task_cats(); //zoznam kategorii pri aktivnych taskoch
             <?php
 
 //$sql = "SELECT a.id, a.cust_id,a.task_text, a.task_category,a.task_priority,a.date_created,a.task_status,a.percent_done,b.cust_id, b.customer_name FROM tblcustomer_tasks a, tblcustomers b WHERE a.cust_id=b.cust_id  and a.task_status<>'complete'  and task_text like '%" . $string . "%' ORDER BY a.id DESC";
-$sql = "SELECT a.id, a.cust_id,a.task_text, a.task_category,a.task_priority,a.date_created,a.task_status,a.percent_done,b.cust_id, b.customer_name FROM tblcustomer_tasks a, tblcustomers b WHERE a.cust_id=b.cust_id  and a.task_status<>'complete' ORDER BY a.id DESC";
+$sql = "SELECT a.TaskID, a.cust_id,a.task_text, a.task_category,a.task_priority,a.date_created,a.task_status,a.percent_done,b.cust_id, b.customer_name FROM tblcustomer_tasks a, tblcustomers b WHERE a.cust_id=b.cust_id  and a.task_status<>'complete' ORDER BY a.TaskID DESC";
 echo "<ul id='tasks'>";
 $result = mysqli_query($con, $sql) or die("MySQL ERROR: " . mysqli_error($con));
 $num = mysqli_num_rows($result);
@@ -144,7 +144,7 @@ if ($num == 0) {
 	while ($row = mysqli_fetch_array($result)) {
 		//SELECT `id`, `task_text`, `date_created`, `date_expiration`, `task_relation`
 
-		$id = $row["id"];
+		$id = $row["TaskID"];
 		$task_text = $row['task_text'];
 		$date_created = $row['date_created'];
 		//$date_expiration=$row['date_expiration'];

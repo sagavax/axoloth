@@ -50,7 +50,20 @@ while ($row = mysqli_fetch_array($result)) {
 		echo "<a href='#' onclick='AddFavorite($id);'><i class='far fa-star'></i></a>";
 	}
 	echo "</div></td>";
-	echo "<td><div class='pass_actions_wrap'><ul class='pass_actions'><li><a href='password${page_ext_qry}id=$id' class='btn-small'><i class='fas fa-eye'></i></a></li><li><a href='password_edit${page_ext_qry}id=$id' class='btn-small'><i class='fas fa-edit'></i></a></li><li><a href='password_archive${page_ext_qry}id=$id' class='btn-small'><i class='fas fa-archive'></i></a></li><li><a href='password_clone${page_ext_qry}id=$id' class='btn-small'><i class='fas fa-copy'></i></a></li><li><a href='password_delete${page_ext_qry}id=$id' class='btn-small remove'><i class='fas fa-times'></i></a></li></ul><div class='mobile_actions'><button class='btn-small'><i class='fa fa-angle-down'></i></button></div></div></td>";
+	echo "<td>
+	<div class='pass_actions_wrap'>
+	  <ul class='pass_actions'>
+		<li><a href='password{$page_ext_qry}id={$id}' class='btn-small'><i class='fas fa-eye'></i></a></li>
+		<li><a href='password_edit{$page_ext_qry}id={$id}' class='btn-small'><i class='fas fa-edit'></i></a></li>
+		<li><a href='password_archive{$page_ext_qry}id={$id}' class='btn-small'><i class='fas fa-archive'></i></a></li>
+		<li><a href='password_clone{$page_ext_qry}id={$id}' class='btn-small'><i class='fas fa-copy'></i></a></li>
+		<li><a href='password_delete{$page_ext_qry}id={$id}' class='btn-small remove'><i class='fas fa-times'></i></a></li>
+	  </ul>
+	  <div class='mobile_actions'>
+		<button class='btn-small'><i class='fa fa-angle-down'></i></button>
+	  </div>
+	</div>
+  </td>";
 	echo "</tr>";
 }
 

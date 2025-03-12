@@ -891,7 +891,7 @@ function GetNoteTagsIds($note_id) {
 	return $cat_ids;
 }
 
-function GetTagList($note_id) {
+/* function GetTagList($note_id) {
 	global $con;
 	$sql = "SELECT cat_id from tblcustomer_notes_tags where note_id=$note_id";
 	$result = mysqli_query($con, $sql) or die("MySQL ERROR: " . mysqli_error($con));
@@ -901,7 +901,7 @@ function GetTagList($note_id) {
 		array_push($tags_cats, $cat_id);
 	}
 	return $tags_cats;
-}
+} */
 
 function GetCatName($cat_id) {
 	if ($cat_id == 0) {
@@ -1207,5 +1207,11 @@ function AddNewCategory($cat_name) {
 }
 
 function GetMobileMenu() {
-	echo "<ul class='menu-box'><li><a href='password${page_ext_qry}id=$id'>Show</a></li><li><a href='password_edit${page_ext_qry}id=$id'>Edit</a></li><li><a href='password_archive${page_ext_qry}id=$id'>Archive</a></li><li><a href='password_clone${page_ext_qry}id=$id'>Clone</a></li><li><a href='password_delete${page_ext_qry}id=$id' class='remove'>Delete</a></li></ul>";
+	echo "<ul class='menu-box'>
+        <li><a href='password{$page_ext_qry}id={$id}'>Show</a></li>
+        <li><a href='password_edit{$page_ext_qry}id={$id}'>Edit</a></li>
+        <li><a href='password_archive{$page_ext_qry}id={$id}'>Archive</a></li>
+        <li><a href='password_clone{$page_ext_qry}id={$id}'>Clone</a></li>
+        <li><a href='password_delete{$page_ext_qry}id={$id}' class='remove'>Delete</a></li>
+      </ul>";
 }
