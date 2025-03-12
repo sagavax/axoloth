@@ -1,0 +1,1193 @@
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+            .pass_tags {
+                position: fixed;
+                width:300px;
+                top:10px;
+                left:10px;
+                border: 1px #d1d1d1 solid;
+                border-radius: 5px;
+                background: white;
+                min-height: 100px;
+            }
+
+            #passwords {
+                width: 100%;
+                height: auto;
+                float: left;
+            }
+            
+            #passwords_wrap {
+                width: 90%;
+                /*min-height: 800px;*/
+                margin: 30px auto;
+                border: 0px #ddd solid;
+            }
+            
+            #password_view_wrap,
+            #new_comment_wrap,
+            #new_contact_wrap {
+                width: 600px;
+                margin: 70px auto;
+                height: auto
+            }
+            
+            #password_view_wrap {
+                box-sizing: border-box;
+                padding: 10px;
+                border: 1px #d1d1d1 solid;
+                border-radius: 5px;
+            }
+            
+            #password_view_wrap table {
+                width: 100%
+            }
+            
+            #password_view_wrap input,
+            #password_view_wrap select,
+            #password_view_wrap textarea {
+                background: #eff3f4;
+            }
+            
+            .password {
+                width: 100%;
+                border-radius: 5px;
+                width: 50%;
+                margin: 10px auto;
+                /*background: rgba(255, 255, 255, 0);*/
+                background: #fff;
+                border: 1px solid #d1d1d1;
+                padding: 15px;
+                text-align: center;
+                box-sizing: border-box;
+                font-family: inherit;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            }
+            
+            .password_header {
+                height: 30px;
+                width: 100%;
+                position: relative;
+            }
+            
+            .password_close {
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                height: 25px;
+                width: 25px;
+                color: #999;
+                font-size: 16px;
+            }
+            
+            .password_body {
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            #pass_details {
+                width: 60%;
+            }
+            
+            .checkbox {
+                float: right;
+                width: 20px;
+                margin-right: 5px
+            }
+            
+            .password tr td {
+                height: 45px;
+                width: 100%;
+            }
+            
+            .password textarea {
+                width: 100%;
+                min-height: 150px;
+                max-height: 200px;
+                padding: 3px 6px 3px 6px;
+                color: #333;
+                border: 1px solid #c6c6c6;
+                font-family: 'Open Sans', Helvetica, sans-serif;
+                box-sizing: border-box;
+                font-size: 14px;
+                border: 1px solid #c6c6c6;
+                background: #eff3f4;
+            }
+            
+            .password input {
+                width: 100%;
+                height: 45px;
+                padding: 10px;
+                margin-bottom: 10px;
+                color: #333;
+                border: 1px solid #c6c6c6;
+                font-family: 'Open Sans', Helvetica, sans-serif;
+                font-size: 14px;
+                font-weight: bold;
+                box-sizing: border-box;
+                background: #eff3f4;
+            }
+            
+            .password input[name="password"] {
+                margin-bottom: 0;
+            }
+            
+            .password select {
+                margin: 0 0 10px;
+                width: 100%;
+                height: 45px;
+                font-family: 'Open Sans';
+                font-size: 14px;
+                font-weight: bold;
+                border: 1px solid #c6c6c6;
+                background: #eff3f4;
+            }
+            
+            .password button {
+                padding: 10px;
+            }
+            
+            .pass_description {
+                box-sizing: border-box;
+                padding: 5px;
+                background: #fff;
+                border: 1px solid #c6c6c6;
+                min-height: 100px;
+                width: 100%;
+            }
+            
+            .embed-button {
+                display: flex;
+                position: relative;
+                box-sizing: border-box;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                width: 100%;
+                height: 55px;
+                align-items: center;
+                margin-bottom: 5px;
+            }
+            
+            .embed-button input {
+                height: 100%;
+                margin-bottom: 0px;
+            }
+            
+            .embed-button button {
+                height: 100%;
+                margin-left: 5px;
+            }
+            
+            #password_categories,
+            #password_private_biznis,
+            #password_most_hits,
+            #password_newest,
+            #password_recent,
+            #password_favorite {
+                margin-top: 15px;
+                overflow: hidden;
+                width: 200px;
+                text-align: center;
+                text-decoration: none;
+                color: #333;
+                font-family: 'Open sans', Helvetica, sans-serif;
+                font-size: 14px;
+                font-weight: bold;
+                border: 1px solid #d1d1d1;
+                background: #fff;
+                margin: 10px auto;
+            }
+            
+            #password_categories {
+                margin-top: 0px;
+            }
+            /*#password_categories,#password_private_biznis,#password_most_hits,#password_newest,#password_recent, #password_favorite {margin-top: 15px; }*/
+            /*#password_categories ul {margin-left: 0px;margin-top: 10px;}*/
+            /*#password_categories ul, #password_private_biznis ul {list-style: none;background: #fff;width:100%;}*/
+            
+            #password_categories li,
+            #password_private_biznis li,
+            #password_most_hits li,
+            #password_newest li,
+            #password_recent li,
+            #password_favorite li {
+                width: 100%;
+                height: 35px;
+                line-height: 35px;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            
+            #password_categories li a,
+            #password_private_biznis li a,
+            #password_most_hits li a,
+            #password_newest li a,
+            #password_recent li a,
+            #password_favorite li a {
+                width: 100%;
+                /*height: 30px;
+    line-height: 30px*/
+            }
+            
+            #password_most_hits li a {
+                display: block;
+            }
+            
+            #password_categories li:hover,
+            #password_private_biznis li:hover,
+            #password_most_hits li:hover,
+            #password_newest li:hover,
+            #password_recent li:hover,
+            #password_favorite li:hover {
+                background: #D3D3D3
+            }
+            
+            .pass_edit_action,
+            .add_password_action {
+                height: 100px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                box-sizing: border-box;
+            }
+            
+            .pass_edit_action {
+                height: 0
+            }
+            
+            .pass_edit_action a,
+            .add_password_action a {
+                margin-right: 5px
+            }
+            
+            #pass_tabs,#pass_tabs_1 {
+                float: left;
+                height: 45px;
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: flex-start;
+                box-sizing: border-box;
+                margin-top: 10px;
+            }
+
+            #pass_tabs_1 {
+                margin-bottom: 10px;
+                height: 50px;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+
+            .taby {
+                height: 100%;
+                flex-grow: 1;
+                background: white;
+                border: 0;
+                font-weight: bold;
+                font-family: 'Open Sans',sans-serif;
+                font-size: inherit;
+                color: #656565;
+            }
+
+            .taby:hover{
+                cursor: pointer;
+                background: #ddd;
+            }
+            
+            #pass_tabs ul {
+                width: 100%;
+                display: flex;
+                height: 45px;
+                margin: 0;
+                padding: 0;
+            }
+            
+            #pass_tabs ul li {
+                float: left;
+                flex-grow: 1;
+                align-items: center;
+                height: 100%;
+                display: flex;
+                border-right: 2px #e9eaed solid;
+                background: #fff;
+                color: #656565;
+                justify-content: center;
+                cursor: pointer;
+            }
+            
+            #pass_tabs ul li:hover {
+                background-color: aliceblue;
+            }
+            
+            #pass_maintable {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            #pass_maintable tr td {
+                font-size: 13px;
+                border-bottom: 1px #ddd solid;
+            }
+            
+            #pass_maintable td:nth-child(1) {
+                cursor: pointer;
+            }
+            
+            #pass_maintable {
+                background: #fff;
+                float: left;
+                width: 100%;
+                padding: 0px;
+                border: 1px solid #d1d1d1;
+                border-collapse: collapse;
+                line-height: 1.5em;
+            }
+            
+            #pass_maintable th {
+                height: 40px;
+                padding-left: 5px;
+                color: #fff;
+                background: #2AA8DE;
+                font-size: 14px;
+            }
+            
+            #pass_maintable tr {
+                /*display: flex;*/
+            }
+            
+            #pass_maintable tr td {
+                height: 45px;
+                font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 14px;
+                /*border-top:1px solid #d1d1d1; border-bottom:1px solid #d1d1d1; */
+                box-sizing: border-box;
+                padding-left: 10px;
+                border-bottom: 1px #ddd solid;
+            }
+            
+            #pass_maintable tr:nth-child(odd) {
+                background: #f5f5f5
+            }
+            
+            #pass_maintable tr:nth-child(even) {
+                background: #fff
+            }
+            
+            #pass_maintable tr:hover {
+                background: #f5f5f5
+            }
+            
+            .pass_actions_wrap {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+            }
+
+            .pass_actions_wrap button {
+                cursor: pointer;
+            }
+            
+            .pass_actions {
+                list-style: none;
+                margin: 0;
+                line-height: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 5px;
+            }
+            
+            .pass_actions li {
+                float: left;
+                margin-left: 5px;
+                height: 43px;
+                line-height: 43px
+            }
+            
+            .pass_system_name {
+                cursor: pointer;
+                width: 55%;
+                text-align: left;
+                text-indent: 10px;
+            }
+            
+            .pass_favorites {
+                text-align: center;
+            }
+            
+            .pass_user_name {
+                text-align: left
+            }
+            
+            .menu-box {
+                height: 100%;
+                width: 40px;
+                display: block;
+                position: relative;
+                z-index: 100;
+            }
+
+            .menu-box {
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                background: #03a9f4;
+                color: white;
+                width: 100px;
+                box-sizing: border-box;
+                padding: 5px;
+            }
+            
+            .menu-box li {
+                width: 100%;
+                height: 40px;
+            }
+
+            .menu-box  a {
+                text-decoration: none;
+                color: white;
+
+            }
+
+            .menu-box{
+                display: none;
+            }
+
+
+            .pass_group {
+                text-align: left;
+            }
+            
+            #pass_view i {
+                margin: 10px;
+                font-size: 18px;
+            }
+            
+            .pass_history_wrap,
+            .pass_history_chart_wrap,
+            .additional_info {
+                margin-top: 20px;
+                float: left;
+                width: 100%;
+                /*min-height:200px;*/
+                background: #fff;
+                border: 1px #d1d1d1 solid;
+                box-sizing: border-box;
+                padding: 5px;
+                font-size: 14px;
+            }
+            
+            .additional_info {
+                height: auto;
+            }
+            
+            .pass_timeline_tabs {
+                margin-top: 20px;
+                float: left;
+                width: 100%;
+                background: #fff;
+                border-top: 1px #d1d1d1 solid;
+                border-left: 1px #d1d1d1 solid;
+                border-right: 1px #d1d1d1 solid;
+                box-sizing: border-box;
+                height: 40px;
+                line-height: 40px;
+            }
+            
+            .pass_timeline_tabs ul {
+                height: 40px;
+                width: 100%;
+                list-style: none;
+                line-height: 40px;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .pass_timeline_tabs li {
+                float: left;
+                width: 50%;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .pass_timeline_tabs a {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+            
+            .pass_timeline_tabs a:hover {
+                background: #2AA8DE;
+                color: #fff;
+            }
+            
+            .pass_timeline_wrap ul:before {
+                content: "";
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                z-index: 0;
+                border: 2px solid #d9d9d9;
+            }
+            
+            .pass_timeline_wrap ul li,
+            .pass_history_wrap ul li {
+                height: 35px;
+                line-height: 35px;
+                margin: 15px;
+                position: relative;
+                width: 100%;
+                font-size: 14px;
+            }
+            
+            .pass_timeline_wrap ul {
+                position: relative;
+                width: 90%;
+                list-style: none;
+                padding: 0;
+                margin: 10px;
+            }
+            
+            .pass_timeline_wrap ul li>div {
+                width: 100% !important;
+                height: 80px;
+            }
+            
+            .pass_history_wrap ul li>div {
+                width: 100%;
+                height: 35px;
+            }
+            
+            .pass_timeline_wrap ul li:before {
+                content: "";
+                height: 10px;
+                width: 10px;
+                border-radius: 10px;
+                background: #fff;
+                display: inline-block;
+                position: absolute;
+                top: 5px;
+                z-index: 100;
+                left: -20px;
+                border: 2px solid #d9d9d9;
+            }
+            
+            .pass_time {
+                width: 20%;
+                float: left;
+                color: #0b70be;
+            }
+            
+            .pass_action {
+                float: left;
+                width: 77%;
+                /*border:1px #d1d1d1 solid;*/
+                /* margin: 0 0 15px 25%*/
+            }
+            
+            .pass_timeline_wrap {
+                min-height: 100px;
+                margin-top: 0;
+            }
+            
+            .pass_history_wrap th {
+                background: #2AA8DE;
+                color: #fff;
+                font-weight: bold;
+                height: 35px;
+                text-align: left;
+                text-indent: 5px;
+            }
+            
+            .pass_history_wrap tr td {
+                height: 35px;
+            }
+            
+            .history_pass {
+                width: 70%
+            }
+            
+            .history_change {
+                width: 30%;
+            }
+            
+            .pass_history_wrap,
+            .pass_history_chart_wrap,
+            .additional_info {
+                margin-top: 20px;
+                float: left;
+                width: 100%;
+                /*min-height:200px;*/
+                background: #fff;
+                border: 1px #d1d1d1 solid;
+                box-sizing: border-box;
+                padding: 5px;
+                font-size: 14px;
+            }
+            
+            .additional_info {
+                height: auto;
+            }
+            
+            .pass_timeline_tabs {
+                margin-top: 20px;
+                float: left;
+                width: 100%;
+                background: #fff;
+                border-top: 1px #d1d1d1 solid;
+                border-left: 1px #d1d1d1 solid;
+                border-right: 1px #d1d1d1 solid;
+                box-sizing: border-box;
+                height: 40px;
+                line-height: 40px;
+            }
+            
+            .pass_timeline_tabs ul {
+                height: 40px;
+                width: 100%;
+                list-style: none;
+                line-height: 40px;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .pass_timeline_tabs li {
+                float: left;
+                width: 50%;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .pass_timeline_tabs a {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+            
+            .pass_timeline_tabs a:hover {
+                background: #2AA8DE;
+                color: #fff;
+            }
+            
+            .pass_timeline_wrap {
+                min-height: 100px;
+                margin-top: 0;
+            }
+            
+            .pass_history_wrap th {
+                background: #2AA8DE;
+                color: #fff;
+                font-weight: bold;
+                height: 35px;
+                text-align: left;
+                text-indent: 5px;
+            }
+            
+            .pass_history_wrap tr td {
+                height: 35px;
+            }
+            
+            .history_pass {
+                width: 70%
+            }
+            
+            .history_change {
+                width: 30%;
+            }
+            
+            .pass_timeline_wrap,
+            .pass_history_wrap,
+            .pass_history_chart_wrap,
+            .additional_info {
+                margin-top: 20px;
+                float: left;
+                width: 100%;
+                /*min-height:200px;*/
+                background: #fff;
+                border: 1px #d1d1d1 solid;
+                box-sizing: border-box;
+                padding: 5px;
+                font-size: 14px;
+            }
+            
+            .additional_info {
+                height: auto;
+            }
+            
+            .pass_timeline_tabs {
+                margin-top: 20px;
+                float: left;
+                width: 100%;
+                background: #fff;
+                border-top: 1px #d1d1d1 solid;
+                border-left: 1px #d1d1d1 solid;
+                border-right: 1px #d1d1d1 solid;
+                box-sizing: border-box;
+                height: 40px;
+                line-height: 40px;
+            }
+            
+            .pass_timeline_tabs ul {
+                height: 40px;
+                width: 100%;
+                list-style: none;
+                line-height: 40px;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .pass_timeline_tabs li {
+                float: left;
+                width: 50%;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .pass_timeline_tabs a {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+            
+            .pass_timeline_tabs a:hover {
+                background: #2AA8DE;
+                color: #fff;
+            }
+            
+            .pass_timeline_wrap {
+                min-height: 100px;
+                margin-top: 0;
+            }
+            
+            .pass_history_wrap th {
+                background: #2AA8DE;
+                color: #fff;
+                font-weight: bold;
+                height: 35px;
+                text-align: left;
+                text-indent: 5px;
+            }
+            
+            .pass_history_wrap tr td {
+                height: 35px;
+            }
+            
+            .history_pass {
+                width: 70%
+            }
+            
+            .history_change {
+                width: 30%;
+            }
+            
+            #favorite_wrap {
+                height: 35px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+            }
+            
+            #favorite_wrap label {
+                height: 30px;
+                display: flex;
+                align-items: center;
+                margin-left: 10px
+            }
+            
+            #is_favorite {
+                width: 25px;
+                margin: 0;
+            }
+            
+            #show_as_list {
+                width: 100%;
+                float: left;
+                height: auto;
+            }
+            
+            #show_as_grid {
+                display: grid;
+                width: 100%;
+                float: left;
+                height: auto;
+                grid-template-columns: repeat(6, 1fr);
+                box-sizing: border-box;
+                padding: 10px;
+                grid-auto-rows: auto;
+                grid-gap: 10px;
+                justify-content: center;
+            }
+            
+            .pass_card {
+                position: relative;
+                height: 300px;
+                width: 240px;
+                box-sizing: border-box;
+                border: 1px #d1d1d1 solid;
+                border-radius: 10px;
+                overflow: hidden;
+                background-color: #fff;
+            }
+            
+            .card_top,
+            .card_bottom {
+                height: 50%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                color: #565656;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: bold;
+            }
+            
+            .card_bottom {
+                background: #03a9f4;
+                border-top: 1px #d1d1d1 solid;
+            }
+            
+            .view,
+            .edit,
+            .delete {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                background: #ffff;
+                border: 1px #d1d1d1 solid;
+                position: absolute;
+                top: 41%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .view:hover,
+            .edit:hover,
+            .delete:hover {
+                background: lightgrey;
+            }
+            
+            .view.i,
+            .edit.i,
+            .delete.i {
+                font-size: 16px;
+            }
+            
+            .view {
+                left: 30px;
+            }
+            
+            .edit {
+                left: 90px;
+            }
+            
+            .delete {
+                left: 150px;
+            }
+            
+            .tab {
+                font-weight: bold;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            
+            .password_notes, .password_tags {
+                width: 100%;
+                display: flex;
+                margin-top: 20px;
+                flex-direction: column;
+            }
+            
+
+
+
+            .password_notes>.pass_note:nth-last-child(1) {
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            
+            .password_notes header,.password_tags header {
+                width: 100%;
+                height: 50px;
+                display: inherit;
+                align-items: center;
+                border: 1px #d1d1d1 solid;
+            }
+            
+            .password_notes header button {
+                margin-right: 5px;
+            }
+            
+            .password_notes span, .password_tags span {
+                width: 100%;
+            }
+            
+            .password_tags {
+                width: 100%;
+                min-height: 50px;
+            }
+
+
+            .password_tags :where(li, li i){
+              display: flex;
+              align-items: center;
+            }
+
+            [class^=uit-]:before, [class*=" uit-"]:before {
+                font-family: unicons-thinline;
+                font-style: normal;
+                font-weight: 400;
+                speak: none;
+                display: inline-block;
+                text-decoration: inherit;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .password_tags ul{
+              display: flex;
+              flex-wrap: wrap;
+              padding: 7px;
+              margin: 12px 0;
+              border-radius: 5px;
+              border: 1px solid #a6a6a6;
+            }
+            .password_tags ul  li{
+              color: #333;
+              margin: 4px 3px;
+              list-style: none;
+              border-radius: 5px;
+              background: #F2F2F2;
+              padding: 5px 8px 5px 10px;
+              border: 1px solid #e3e1e1;
+            }
+            .password_tags ul li i{
+              height: 20px;
+              width: 20px;
+              color: #808080;
+              margin-left: 8px;
+              font-size: 12px;
+              cursor: pointer;
+              border-radius: 50%;
+              background: #dfdfdf;
+              justify-content: center;
+            }
+            .password_tags ul input{
+              flex: 1;
+              padding: 5px;
+              border: none;
+              outline: none;
+              font-size: 16px;
+              background-color: white;
+            }    
+
+
+            .uit-multiply:before {
+               content: '\e8bf';
+            }
+
+            
+
+            .pass_notes_body,
+            .pass_note_container {
+                width: 100%;
+                box-sizing: border-box;
+                display: flex;
+                padding: 10px;
+            }
+            
+            .pass_note_container {
+                padding: 0;
+                flex-direction: column;
+            }
+            
+            .pass_notes_container textarea {
+                width: 100%;
+            }
+            
+            .pass_note:nth-child(1) {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            
+            .pass_note:nth-last-child(3) {
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            
+            .pass_note {
+                position: relative;
+                display: flex;
+                width: 100%;
+                background: #d0e3ee;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+                padding: 10px;
+                min-height: 100px;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .pass_note button {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                font-size: 20px;
+                height: 20px;
+                width: 20px;
+                font-weight: normal;
+                color: #999;
+            }
+            
+            .remove {
+                background: red;
+                border: 1px solid red;
+                opacity: 0.5;
+                transition: 0.5s;
+            }
+
+            .remove:hover {
+                opacity: 1;
+                background-color: red;
+                border: 1px solid red;
+            }
+
+            .show_add_note {
+                position: relative;
+                 width: 500px;
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: fixed;
+                top: 30%;
+                left: 30%;
+                padding: 10px;
+                height: 350px;
+                border: 1px solid #d1d1d1;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                justify-content: flex-end;
+            }
+            .show_add_note textarea {
+                 font-weight: normal;
+                    font-size: 14px;
+                    margin-top: 10px;
+                    min-height: 250px;
+                    width: 100%;
+                    border: 1px solid #d1d1d1;
+                    background: #eff3f4;
+            }
+
+            .show_add_note div {
+                    display: flex;
+                    justify-content: flex-end;
+            }
+
+            .show_add_note button {
+                margin-top: 10px;
+                width: 100px;
+                height: 45px;
+            }
+
+            @media only screen and (max-width:767px) {
+                #right_panel {
+                    display: none;
+                }
+                #left_panel {
+                    width: 100%;
+                }
+                #pass_maintable tr td {
+                    padding-left: 5px;
+                }
+                .pass_system_name {
+                    width: 5%
+                }
+                #pass_actions {
+                    width: 100%;
+                }
+                /*#pass_maintable td:nth-child(1),
+    #pass_maintable td:nth-child(5) {
+        width: 50%;
+    }*/
+                #pass_maintable td:nth-child(1) {
+                    width: 100%;
+                }
+                #pass_maintable th:nth-child(2) {
+                    display: none;
+                }
+                #pass_maintable th:nth-child(3) {
+                    display: none;
+                }
+                #pass_maintable td:nth-child(2) {
+                    display: none;
+                }
+                #pass_maintable td:nth-child(3) {
+                    display: none;
+                }
+                #pass_maintable td:nth-child(4) {
+                    width: 60%;
+                }
+                .password {
+                    width: 90%;
+                    margin-top: 20px;
+                }
+                .password textarea {
+                    max-height: 100px;
+                }
+                .password input {
+                    word-wrap: break-word;
+                }
+                .add_password_action {
+                    height: 50px;
+                    box-sizing: border-box;
+                    padding: 5px;
+                }
+                #passwords_wrap {
+                    min-height: 100vh;
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 5px;
+                }
+                .fab-container {
+                    right: 30px;
+                }
+                .paginate {
+                    display: none
+                }
+                #password {
+                    margin-bottom: 10px;
+                }
+                .mobile_actions {
+                    display: block;
+                }
+                
+            }
+            
+            @media (min-width:768px) and (max-width:1199px) {
+                #left_panel {
+                    width: 100%;
+                }
+                #passwords_wrap {
+                    width: 90%;
+                }
+            }
+            
+            @media (min-width:1200px) and (max-width: 1600px) {
+                #left_panel {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+                .header_clock {
+                    width: 10%;
+                }
+            }

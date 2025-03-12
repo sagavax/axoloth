@@ -1,0 +1,290 @@
+    .trading_info_wrap {
+        height: 100vh;
+        width: 60%;
+        margin: 0 auto;
+    }
+    
+    #tabs {
+        width: 100%;
+        height: 60px;
+        background-color: #fff;
+        display: flex;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        overflow: hidden;
+        margin-top: 50px;
+    }
+    
+    #tabs ul {
+        height: 100%;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        float: left;
+        display: flex;
+        background: transparent;
+    }
+    
+    #tabs ul li {
+        height: 60px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bolder;
+        border-right: 2px #e9eaed solid;
+        flex-grow: 1;
+        position: relative;
+    }
+    
+    #tabs ul li button {
+        margin-right: 5px !important
+    }
+    
+    .active {
+        background: white;
+    }
+    
+    .inactive {
+        background: aliceblue
+    }
+    
+    .new_trading_platform,
+    .new_asset_platform,
+    .platform_note,
+    .platform_asset {
+        display: none;
+        width: 500px;
+        height: 120px;
+        flex-direction: column;
+        background: #fff;
+        position: fixed;
+        top: 30%;
+        left: 30%;
+        padding: 10px;
+        border: 1px solid #d1d1d1;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+    
+    .platform_note,
+    .platform_asset {
+        height: 410px;
+    }
+    
+    .platform_note textarea,
+    .platform_asset textarea {
+        margin-top: 10px;
+        min-height: 250px;
+        width: 100%;
+        border: 1px solid #d1d1d1;
+        background: #eff3f4;
+    }
+    
+    .platform_note textarea::placeholder {
+        font-weight: normal;
+        font-size: 14px;
+    }
+    
+    #modal_add_asset,
+    #modal_add_platform,
+    #modal_add_note {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    
+    .new_asset_platform {
+        height: 510px
+    }
+    
+    #asset_type {
+        font-family: 'Open Sans', sans-serif;
+        height: 45px;
+        margin-top: 10px;
+        background: #eff3f4;
+        border: 1px #d1d1d1 solid;
+        outline: none;
+    }
+    
+    #asset_description {
+        height: 200px;
+        width: 100%;
+        background: #eff3f4;
+        border: 1px #d1d1d1 solid;
+        resize: none;
+        margin-top: 10px;
+        outline: none;
+    }
+    
+    #asset_description::placeholder,
+    #asset_note::placeholder {
+        font-size: 14px;
+        font-weight: normal;
+    }
+    
+    .action_wrap {
+        display: flex;
+        height: 40px;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 10px;
+    }
+    
+    .action_wrap button:first-child {
+        margin-right: 5px;
+    }
+    
+    .new_trading_platform input,
+    .new_asset_platform input,
+    .platform_note input,
+    .platform_asset input {
+        margin-top: 10px;
+        height: 45px;
+        border: 1px #d1d1d1 solid;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 10px;
+        background: #eff3f4;
+        border-radius: 3px;
+        color: #353535;
+        font-size: 16px;
+    }
+    
+    .new_trading_platform input::placeholder,
+    .new_asset_platform input::placeholder {
+        font-family: 'Open Sans';
+        font-size: 14px;
+    }
+    
+    .new_asset_platform select,
+    .platform_asset select {
+        font-family: 'Open Sans';
+        font-size: 14px;
+    }
+    
+    .platform_asset select {
+        height: 45px;
+        background: #eff3f4;
+        border: 1px #d1d1d1 solid;
+    }
+    
+    .platform {
+        width: 100%;
+        border: 1px #d1d1d1 solid;
+        height: 55px;
+        display: flex;
+        background: #fff;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    
+    .trading_platforms ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        margin-top: 10px;
+    }
+    
+    .platform_name {
+        width: 100%;
+    }
+    
+    .platf_actions {
+        width: 15%;
+        display: flex;
+    }
+    
+    .platf_actions button {
+        margin-left: 10px;
+    }
+    /*
+    .platf_actions .action_menu {
+        background: #fff;
+        border: 0
+    }
+    
+    .platf_actions .action_menu:hover {
+        background: #d1d1d1;
+    }
+    
+    .pl_menu {
+        position: relative;
+    }*/
+    
+    .action_menu {
+        background: #fff;
+        border: 1px #fff solid;
+        color: #555;
+    }
+    
+    .action_menu:hover {
+        background: #eee;
+        border: 1px #eee solid;
+        border-radius: 50px;
+    }
+    
+    .context_menu {
+        display: none;
+        background: #fff;
+        height: 210px;
+        width: 200px;
+        position: absolute;
+        /*top: 20px;
+        right: 20px;*/
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+    
+    .context_menu ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+    
+    .context_menu ul li {
+        width: 100%;
+        height: 35px;
+        cursor: pointer;
+    }
+    
+    .context_menu ul li:hover {
+        background-color: #eee;
+    }
+    
+    .search_wrap {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .search_wrap input {
+        width: 100%;
+        height: 45px;
+        border: 1px #d1d1d1 solid;
+        box-sizing: border-box;
+        font-size: 16px;
+        padding-left: 10px;
+        font-family: 'Open Sans';
+        background: #eff3f4
+    }
+    
+    .search_wrap input::placeholder {
+        font-family: 'Open Sans';
+        font-size: 14px;
+    }
+    
+    .trading_feeds {
+        width: 100%;
+        height: auto;
+    }

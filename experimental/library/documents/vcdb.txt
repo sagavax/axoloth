@@ -1,0 +1,21 @@
+use [master] 
+go 
+CREATE DATABASE [VCDB] ON PRIMARY 
+(NAME = N'vcdb', FILENAME = N'C:\VCDB.mdf', SIZE = 2000KB, FILEGROWTH = 10% ) 
+LOG ON 
+(NAME = N'vcdb_log', FILENAME = N'C:\VCDB.ldf', SIZE = 1000KB, FILEGROWTH = 10%) 
+COLLATE SQL_Latin1_General_CP1_CI_AS 
+go
+use VCDB 
+go 
+sp_addlogin @loginame=[vpxuser], @passwd=N'vpxuser!0', @defdb='VCDB', 
+@deflanguage='us_english'
+go 
+ALTER LOGIN [vpxuser] WITH CHECK_POLICY = OFF 
+go 
+CREATE USER [vpxuser] for LOGIN [vpxuser]
+go
+use MSDB
+go
+CREATE USER [vpxuser] for LOGIN [vpxuser]
+go
