@@ -95,7 +95,7 @@ $total_pages = $row_count['total'];
 if ($total_pages == 0) {
     echo "<script>toastr.error('Záznam neexistuje')</script>";
 } else {
-    $sql = "SELECT * FROM tblpasswords LIMIT $start, $limit"; // Pôvodný SQL dotaz s LIMIT
+    $sql = "SELECT * FROM tblpasswords ORDER BY PassID DESC LIMIT $start, $limit"; // Pôvodný SQL dotaz s LIMIT
     $result = mysqli_query($con, $sql);
 
     $stages = 3;
