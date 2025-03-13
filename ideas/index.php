@@ -72,7 +72,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
     <script type="text/javascript" defer src="../js/ideas.js?<?php echo time(); ?>"></script>
     <script type="text/javascript" defer src="../js/message.js"></script>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel='shortcut icon' href='../a.png'>
 
   </head>
   <body>
