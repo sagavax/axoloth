@@ -19,8 +19,7 @@
 
         <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
         <title>Enterprise informating system - Contact manager</title>
-
-            </head>
+</head>
       <body>
            	<div id="header"> <!--header -->
                         <div class="header-logo">e.i.s. - enterprise informating system</div> <!--logo -->

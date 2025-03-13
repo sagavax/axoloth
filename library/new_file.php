@@ -39,7 +39,7 @@
 				<table id="file_upload">		
 	               <tr>
 	               		<td>
-							<legend><h3>File Uploader<h3></legend>
+							<h3>File Uploader<h3>
 						</td>
 					</tr>
 					<tr>

@@ -131,7 +131,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
       <link rel='shortcut icon' href='eis.ico'>
       
        
-      <script language="JavaScript">  
+      <script>  
          function checklength(i){  
                 if (i<10){  
                  i="0"+i;}  

@@ -76,7 +76,7 @@
       <title>e.i.s. - wall</title>
       <link rel='shortcut icon' href='eis.ico'>
 
-      <script language="JavaScript">
+      <script>
          function checklength(i){
                 if (i<10){
                  i="0"+i;}
@@ -193,7 +193,7 @@
 
 
    </body>
-   <script language="JavaScript">
+   <script>
         var x=document.getElementById("wall-comment-loc");
 
         function test() {

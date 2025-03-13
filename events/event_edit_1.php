@@ -92,8 +92,9 @@
                     <h2>Modify the event id <?php echo $event_id; ?></h2>
                     <div id="edit_event_wrap">
                         <form actiopn="" method="post">
+                        <input type="hidden" name="event_id" value="<?php echo $event_id ?>">
                           <table id="edit_event">
-                            <input type="hidden" name="event_id" value="<?php echo $event_id ?>">
+                            
                             <tr>
                               <td>Title:</td><td><input type="text" name="event_title" value="<?php echo htmlspecialchars($row['event_title']); ?>"></td>
                             </tr>

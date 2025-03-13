@@ -136,8 +136,9 @@ $date_expiration = $row['date_expiration'];
 $percent_done = $row['percent_done'];
 ?>
           <form action="" method="post">
+          <input type="hidden" name="task_id" value="<?php echo $row['id'] ?>" />
             <table class="task_details">
-              <input type="hidden" name="task_id" value="<?php echo $row['id'] ?>" />
+              
               <tr>
                 <td>Task text:</td>
                 <td><textarea name="task_text"><?php echo $row['task_text'] ?></textarea></td>

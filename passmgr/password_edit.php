@@ -125,7 +125,7 @@ $row = mysqli_fetch_array($result);
      <div class="password">
       <form accept-charset="utf-8" method="post" action="" name="edit_password">
       <input type="hidden" name="id" value="<?php echo $row['PassID']; ?>" />
-
+	  <input type="hidden" name="old_password" value="<?php echo $row['password'] ?>">	
         <table>
 
           <tr>
@@ -157,7 +157,7 @@ $row = mysqli_fetch_array($result);
           </tr>
           <tr>
            <td><div class="embed-button"><input type="text" name="password" id="password" value="<?php echo $row['password'] ?>"><button onclick="generate_password()" class="flat-btn" type="button"  id="generuj_pass"><i class="fas fa-sync-alt"></i></button></button><button type="button" class="flat-btn" id="copy_to_clip" onclick="copyPassword()"><i class="fas fa-clipboard"></i></button></div></td>
-            <input type="hidden" name="old_password" value="<?php echo $row['password'] ?>">
+            
           </tr>
           <tr>
             <!--<td> <input type="text" name="category" value="<?php echo $row['category'] ?>"></td>-->

@@ -85,10 +85,12 @@
 
 		<div id="add_new_instance_wrap"> 
 			<form accept-charset="utf-8" method="post" action="server_instance_add.php">
+			<input type="hidden" name="server_id" value="<?php echo $server_id;?>">
+			<input type="hidden" name="server_name" value="<?php echo $server_name;?>">
+			
 				<h2> Create new instance for <?php echo $server_name; ?> </h2>
 				<table id="add_instance" border="0" border-spacing="0">
-					<input type="hidden" name="server_id" value="<?php echo $server_id;?>">
-					<input type="hidden" name="server_name" value="<?php echo $server_name;?>">
+					
 					<tr>
 					    <th>Instance name:</div></th>
 					    <td> <input type="text" name="instance_name" id="instance_name"></td>

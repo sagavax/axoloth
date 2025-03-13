@@ -85,7 +85,7 @@
 
 			<div class="basic_server_information"><!--basic server information -->
 				<table id="ViewServerDetails" border-spacing="0">
-					<input type="hidden" name="server_id" value="<?php echo $id; ?>" />
+					
 					<h2>Basic server information:</h2>
 
 					<?php
@@ -267,7 +267,7 @@
 
 						  	  		  	if (isset($_POST['remove_node'])) { //removnem nodu z clustru
 						  	  		  		$server_id=$_POST['child_server_id'];
-						  	  		  		//echo '<script language="javascript">';
+						  	  		  		//echo '<script>';
 											//echo 'alert("")';
 											//echo 'alert("message successfully sent")';
 											//echo '</script>';

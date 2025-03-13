@@ -79,9 +79,10 @@ if(isset($_POST['update_instance_info']))
                               
 
                               <form accept-charset="utf-8" method="post" action="server_instance_edit.php">
+                              <input type="hidden" name="id" value="<?php echo $inst_id;?>"  />
                                 <h2> Edit instance <?php echo $row['instance_name']?> info:</h2>
                                 <table id="edit_instance">
-                                  <input type="hidden" name="id" value="<?php echo $inst_id;?>"  />
+                                  
                                   <tr>
                                      <td style="width:100px">Instance name:</td>
                                      <td><input type="text" name="instance_name" value="<?php echo $row['instance_name']?>" ></td>
