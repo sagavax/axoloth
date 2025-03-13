@@ -97,7 +97,7 @@
 				<section class="project_section_wrap">
 					<form action='' method='get'>						
 						<table class="project_section_list">
-							<input type="hidden" name="project_id" value=<?php echo $project_id; ?>
+							<input type="hidden" name="project_id" value=<?php echo $project_id; ?>>
 							<th><h3>Project tasks:</h3></th>
 							<?php
 								//$sql="SELECT * from tblcustomer_project_tasks where project_id=$project_id and task_status not in ('void','complete') ORDER BY task_id DESC";

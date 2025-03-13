@@ -52,7 +52,7 @@ if (isset($_POST['submit']))
 
   <form accept-charset="utf-8" method="post" action="cust_note_add.php">
   <input type="hidden" name="customer_name"/>
-  <table id="new_password" border="0" cellspacing="0" bgcolor="#D7E2F2">
+  <table id="new_password" border="0" border-spacing="0" bgcolor="#D7E2F2">
   
   <tr>
       <td style="width: 100px; color: #3B5998 ; font: Helvetica; font-weight: bold; text-align: right; font-size:12px">Customer:</td>

@@ -23,5 +23,5 @@ while ($rows = mysqli_fetch_array($rows_id)){
 }
 
 //add_id into the list
-$add_into_pass_tag_list = "INSERT INTO tblpassword_tag_list (pass_id, tag_id, date_created)($pass_id,$row_id['tag_id'],now())";
-mysqli_query($link, $add_into_pass_tag_list) or die("MySQLi ERROR: " . mysqli_error($link));
+//$add_into_pass_tag_list = "INSERT INTO tblpassword_tag_list (pass_id, tag_id, date_created)($pass_id,$row_id['tag_id'],now())";
+//mysqli_query($link, $add_into_pass_tag_list) or die("MySQLi ERROR: " . mysqli_error($link));

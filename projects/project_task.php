@@ -96,7 +96,7 @@
          			<H2>Add new task:</H2>
 				    <form accept-charset="utf-8" method="post" action="project_task.php">
 					      <input type="hidden" name="project_id" value="<?php echo $project_id ?>">
-					      <table id="new_project_task" border="0" cellspacing="0" bgcolor="#D7E2F2">
+					      <table id="new_project_task" border="0" border-spacing="0" background-color="#D7E2F2">
 
 					          <tr>
 					           	<td><textarea name="task_text" placeholder="task text..."/></textarea></td>
@@ -131,7 +131,7 @@
 					  <form accept-charset="utf-8" method="post" action="project_task.php">
 					      <input type="hidden" name="project_id" value="<?php echo $project_id ?>">
 					      <input type="hidden" name="task_id" value="<?php echo $task_id ?>">
-					      <table id="new_project_task" border="0" cellspacing="0" bgcolor="#D7E2F2">
+					      <table id="new_project_task" border="0" border-spacing="0" background-color="#D7E2F2">
 
 					      <?php
 

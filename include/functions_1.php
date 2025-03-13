@@ -370,7 +370,7 @@
 function draw_calendar($month,$year){
 
   /* draw table */
-  $calendar = "<table cellpadding='0' cellspacing='0' id='month_calendar'>";
+  $calendar = "<table cellpadding='0' border-spacing='0' id='month_calendar'>";
 
   /* table headings */
   $headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
@@ -477,7 +477,7 @@ function draw_event_calendar($month,$year){
   // echo "Rok:".$year;
   //echo "Aktualny mesiac:".$running_month;
   /* draw table */
-  $calendar = "<table cellpadding='0' cellspacing='0' id='month_calendar'>";
+  $calendar = "<table cellpadding='0' border-spacing='0' id='month_calendar'>";
 
 
  $previous_month = ($month - 1) > 0 ? $month - 1 : 12;
@@ -576,7 +576,7 @@ function draw_event_calendar_view($month,$year){
 
 
   /* draw table */
-  $calendar = "<table cellpadding='0' cellspacing='0' id='month_calendar'>";
+  $calendar = "<table cellpadding='0' border-spacing='0' id='month_calendar'>";
 
 
  $previous_month = ($month - 1) > 0 ? $month - 1 : 12;

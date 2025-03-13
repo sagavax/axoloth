@@ -48,7 +48,7 @@
 
                   ?>
 
-                     <table id="view_contact" border="0" cellspacing="0">
+                     <table id="view_contact" border="0" border-spacing="0">
 
                       <tr>
                         <td>First name:</td><td><input type="text" name="first_name" value=""/></td>
@@ -116,7 +116,7 @@
 
 
                    <form action="contact.php" method="post">
-                    <table id="modify_contact" border="0" cellspacing="0">
+                    <table id="modify_contact" border="0" border-spacing="0">
 
                       <tr>
                         <td>First name:</td><td><input type="text" name="first_name" value="<?php echo $row['first_name'];?>"/></td>
@@ -197,7 +197,7 @@
                   <h2><?php echo $customer_full_name;  ?></h2>
 
                   <form action="contact.php" method="post">
-                    <table id="add_contact_info" border="0" cellspacing="0">
+                    <table id="add_contact_info" border="0" border-spacing="0">
                      <input type="hidden" name="contact_id" value="id">
                      <tr>
                        <td>

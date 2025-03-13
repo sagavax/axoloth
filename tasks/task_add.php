@@ -133,7 +133,7 @@ include '../include/header.php';
          		<h3>Add new task:</h3>
 					  <form accept-charset="utf-8" method="post" action="task_add.php">
 					      <input type="hidden" name="id">
-					      <table id="new_task" border="0" cellspacing="0">
+					      <table id="new_task" border="0" border-spacing="0">
 
 					          <tr>
 					           	<td><textarea name="task_text" /></textarea></td>

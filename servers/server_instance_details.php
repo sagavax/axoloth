@@ -21,7 +21,7 @@
 <div id="container">
   <div id="center" class="column">
 
-  <table id="ViewInstanceDetails" border="0" cellspacing="0">
+  <table id="ViewInstanceDetails" border="0" border-spacing="0">
   
 	<?php    
        

@@ -75,7 +75,7 @@ if (isset($_POST['add_contact']))
          		<H2>Add new contact:</H2>
 					  <form accept-charset="utf-8" method="post" action="contact_add.php">
 					      <input type="hidden" name="id">
-					      <table id="new_contact" border="0" cellspacing="0">
+					      <table id="new_contact" border="0" border-spacing="0">
 
 					          <tr>
 					           	<td>First name:</td><td><input type="text" name="first_name" /></td>

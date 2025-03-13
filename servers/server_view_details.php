@@ -84,7 +84,7 @@
 		<div id="server_info_wrap"><!-- sserver info -->
 
 			<div class="basic_server_information"><!--basic server information -->
-				<table id="ViewServerDetails" cellspacing="0">
+				<table id="ViewServerDetails" border-spacing="0">
 					<input type="hidden" name="server_id" value="<?php echo $id; ?>" />
 					<h2>Basic server information:</h2>
 
@@ -155,7 +155,7 @@
 			<div id="instance_info">
 			    <div style="text-transform:uppercase; background:#555; color:#fff; position:relative;float:left;margin:0; width: 100%;height:30px;line-height: 30px;font-family:'Open Sans', Arial, sans-serif; font-weight:bold"><span style="font-size:13px;margin-left:5px">Server's instances:</span></div>
 
-			    	<table id="ViewInstanceDetails" border="0" cellspacing="0">
+			    	<table id="ViewInstanceDetails" border="0" border-spacing="0">
 
 						<?php
 

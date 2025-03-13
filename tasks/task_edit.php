@@ -246,6 +246,6 @@ while ($row = mysqli_fetch_array($rsd)) {
       </div> <!-- edit task wrap -->
       </form>
     </div>
-    <!-- end of layout -- >
+    <!-- end of layout -->
 
   </body>
