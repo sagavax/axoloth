@@ -1,10 +1,6 @@
 <?php session_start();
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
-if (!isset($_SESSION['login'])) {
-	header("location:index.php");
-}
-
 include "../include/dbconnect.php";
 include "../include/functions.php";
 include_once "../include/config.php";
@@ -29,21 +25,18 @@ if (isset($_POST['new_password'])) {
 	$password1 = mysqli_real_escape_string($con, $_POST['password']);
 	$url = mysqli_real_escape_string($con, $_POST['url']);
 	$category = $_POST['category'];
-	$date_added = date('Y-m-d');
 	$description = mysqli_real_escape_string($con, $_POST['description']);
-	global $con;
-
+	
+   // Add the new password to the database
+   //$password1 = password_hash($password1, PASSWORD_DEFAULT);
 	$sql = "INSERT INTO tblpasswords (cust_id,group_name,system_name,User_name, Password, Category, URL, description,date_added ) VALUES ($cust_id,'$group_name','$system_name','$user_name','$password1','$category','$url','$description','$date_added')";
-	//echo $sql;
 	$result = mysqli_query($con, $sql) or die("MySQLi ERROR: " . mysqli_error($con));
 
-	$curr_date = date('Y-m-d H:i:s');
 	$new_pass_id = GetLatestPassword();
 
-	$link1 = mysqli_connect(null, "brick_wall", "h3jSXv3gLf", "brick_wall", null, "/tmp/mariadb55.sock");
-	//$link1 = mysqli_connect("localhost","root","","brick_wall");
-	$diary_text = "EIS: Bolo vytvorene nove heslo s id $new_pass_id a systemovym menom <strong>$system_name</strong>";
-	$sql = "INSERT INTO diary (diary_text, date_added,location,isMobile,is_read) VALUES ('$diary_text','$curr_date','',0,0)";
+	$curr_app = "passmgr";
+	$diary_text = "Bolo vytvorene nove heslo s id $new_pass_id a systemovym menom <strong>$system_name</strong>";
+	$sql = "INSERT INTO tblapp_log (application, note, date_created) VALUES ('$curr_app','$diary_text',now())";
 	$result = mysqli_query($link1, $sql) or die("MySQLi ERROR: " . mysqli_error($link1));
 	mysqli_close($link1);
 
@@ -52,13 +45,13 @@ if (isset($_POST['new_password'])) {
 	$text_logu = "new password id $new_pass_id has been created";
 
 	//vlozenie to timeliny
-	$sql = "INSERT INTO tblpasswords_timeline (pass_id,pass_action, action_time) VALUES ($new_pass_id,'password was created','$curr_date')";
-	$result = mysqli_query($con, $sql); // or die("MySQL ERROR: ".mysqli_error());
+	$sql = "INSERT INTO tblpasswords_timeline (pass_id,pass_action, action_time) VALUES ($new_pass_id,'password was created',now())";
+	$result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());
 
-	$sql = "INSERT INTO tblcustomer_notes_history (action, app, text_logu, date_added, is_read) VALUES ('$curr_action','$curr_app','$text_logu','$curr_date',0)";
+	$sql = "INSERT INTO tblcustomer_notes_history (action, app, text_logu, date_added, is_read) VALUES ('$curr_action','$curr_app','$text_logu',now(),0)";
 	//echo $sql;
 
-	$result = mysqli_query($con, $sql); // or die("MySQL ERROR: ".mysqli_error());
+	$result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());
 	echo "<script>alert('new password $new_pass_id is  has been created');
       location.href='index.php'</script>";
 }

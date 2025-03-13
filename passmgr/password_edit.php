@@ -193,19 +193,19 @@ if ($row['is_favorite'] == 1) {
         <div class="pass_notes_body">
           <div class="pass_note_container">
           <?php
-$get_notes = "SELECT * from tblpassword_notes WHERE pass_id=" . $row['PassID'] . " ORDER BY id DESC";
-$result_notes = mysqli_query($con, $get_notes);
-while ($row_notes = mysqli_fetch_array($result_notes)) {
-	$id = $row_notes['id'];
-	$note_text = $row_notes['note_text'];
-	$update_date = $row_notes['updated_date'];
+              $get_notes = "SELECT * from tblpassword_notes WHERE pass_id=" . $row['PassID'] . " ORDER BY id DESC";
+              $result_notes = mysqli_query($con, $get_notes);
+              while ($row_notes = mysqli_fetch_array($result_notes)) {
+                $id = $row_notes['id'];
+                $note_text = $row_notes['note_text'];
+                $update_date = $row_notes['updated_date'];
 
-	echo "<div class='pass_note' note-id='$id'>";
-	echo "<button class='close' type='button' onclick='remove_pass_note($id);'><i class='fa fa-times'></i></button>";
-	echo $note_text;
-	echo "</div>";
-}
-?>
+                echo "<div class='pass_note' note-id='$id'>";
+                echo "<button class='close' type='button' onclick='remove_pass_note($id);'><i class='fa fa-times'></i></button>";
+                echo $note_text;
+                echo "</div>";
+              }
+              ?>
           <textarea id="pass_note_text" placeholder="Enter a note"></textarea>
           <button type="button" id="save_note" class="flat-btn" onclick="save_note(<?php echo $row['PassID'] ?>)"> Add</button>
         </div><!--pass_note_container -->
