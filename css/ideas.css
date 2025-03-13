@@ -116,9 +116,19 @@ dialog ul li:hover {
 }
 
 .new_idea form select {
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    gap:5px;
+}
+
+.mew_idea_select_wrapper {
+    box-sizing: border-box;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    gap:5px
 }
 
 

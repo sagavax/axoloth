@@ -119,23 +119,24 @@
                 <form action="" method="post">
                       <input type="text" name="bug_title" placeholder="bug title here" id="bug_title" autocomplete="off">
                       <textarea name="bug_text" placeholder="Put a bug / error text here" id="bug_text"></textarea>
-                      <select name="bug_priority">
-                        <option value="0">--- choose priority --- </option>
-                        <option value = "low">low</option>
-                        <option value = "medium">medium</option>
-                        <option value = "high">high</option>
-                        <option value = "critical">critical</option>
-                      </select>
+                      <div class="mew_bug_select_wrapper">
+                        <select name="bug_priority">
+                          <option value="0">--- choose priority --- </option>
+                          <option value = "low">low</option>
+                          <option value = "medium">medium</option>
+                          <option value = "high">high</option>
+                          <option value = "critical">critical</option>
+                        </select>
 
-                      <select name="bug_status">
-                          <option value="0">--- choose status --- </option>
-                          <option value = "new">new</option>
-                          <option value = "in progress">in progress</option>
-                          <option value = "pending">pending</option>
-                          <option value = "fixed">fixed</option>
-                          <option value = "reopened">reopened</option>
-                      </select>
-
+                        <select name="bug_status">
+                            <option value="0">--- choose status --- </option>
+                            <option value = "new">new</option>
+                            <option value = "in progress">in progress</option>
+                            <option value = "pending">pending</option>
+                            <option value = "fixed">fixed</option>
+                            <option value = "reopened">reopened</option>
+                        </select>
+                      </div>
                       <div class="new_bug_action">
                         <button type="submit" name="save_bug" class="flat-btn">Save</button>
                       </div>

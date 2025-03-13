@@ -308,6 +308,23 @@
     margin-bottom: 10px;
 }
 
+.new_bug form select {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:5px;
+}
+
+.mew_bug_select_wrapper {
+    box-sizing: border-box;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    gap:5px
+}
+
+
 /* .pagination a{
     font-size: 18px;
     display: flex;

@@ -87,22 +87,24 @@
                 <form action="ideas_save.php" method="post">
                       <input type="text" name="idea_title" placeholder="idea title here" id="idea_title" autocomplete="off">
                       <textarea name="idea_text" placeholder="Put a your idea(s) here..." id="idea_text"></textarea>
-                      <select name="idea_priority">
-                        <option value="0">--- choose priority --- </option>
-                        <option value = "low">low</option>
-                        <option value = "medium">medium</option>
-                        <option value = "high">high</option>
-                        <option value = "critical">critical</option>
-                      </select>
+                      <div class ="mew_idea_select_wrapper">
+                        <select name="idea_priority">
+                          <option value="0">--- choose priority --- </option>
+                          <option value = "low">low</option>
+                          <option value = "medium">medium</option>
+                          <option value = "high">high</option>
+                          <option value = "critical">critical</option>
+                        </select>
 
-                      <select name="idea_status">
-                          <option value="0">--- choose status --- </option>
-                          <option value = "new">new</option>
-                          <option value = "in progress">in progress</option>
-                          <option value = "pending">pending</option>
-                          <option value = "applied">applied</option>
-                          <option value = "canceled">canceled</option>
-                      </select>
+                        <select name="idea_status">
+                            <option value="0">--- choose status --- </option>
+                            <option value = "new">new</option>
+                            <option value = "in progress">in progress</option>
+                            <option value = "pending">pending</option>
+                            <option value = "applied">applied</option>
+                            <option value = "canceled">canceled</option>
+                        </select>
+                      </div> <!-- mew_idea_select_wrapper-->
                       <div class="new_idea_action">
                         <button type="submit" name="save_idea" class="flat-btn">Save</button>
                       </div>
