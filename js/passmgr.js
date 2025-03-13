@@ -1,4 +1,6 @@
 const passwords = document.querySelector("#passwords");
+var new_pass_note = document.getElementById("pass_note_text");
+var mobile_menus = document.querySelectorAll(".mobile_menu");
 
 passwords.addEventListener("click", (event)=>{
     if(event.target.tagName==="BUTTON"){
@@ -8,26 +10,13 @@ passwords.addEventListener("click", (event)=>{
 
 
 
-var mobile_menus = document.querySelectorAll(".mobile_menu");
+
 //console.log(mobile_menus);
 var i;
 for(i=0;i< mobile_menus.length;i++){
    var mobile_menu = mobile_menus[i];
     mobile_menu.addEventListener("click",toggleMenu,false);
 }
-
-
-
-
-
-/*const someInput = document.querySelector('button');
-someInput.addEventListener('click', myFunc, false);
-someInput.myParam = 'This is my parameter';
-function myFunc(evt)
-{
-  window.alert(evt.currentTarget.myParam);
-}*/
-
 
 
 
@@ -45,11 +34,6 @@ function toggleMenu_old(evt) {
     }
   }
 }
-
-function toggleMenu(){
-    var parent = document.createElement("ul");
- }   
-
 
 
 function AddFavorite(PassID) {
@@ -132,14 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-
-/* const pass_card = document.querySelectorAll(".pass_card");
-for (i = 0; i < pass_card.length; i++) {
-    pass_card[i].addEventListener("click", function() {
-        alert(this.getAttribute("data-href"));
-    })
-}*/
 
 
 function reload_passwords() {
@@ -247,7 +223,7 @@ const getKey = [
 
 
 function show_hide_note() {
-    var new_pass_note = document.getElementById("pass_note_text");
+    
     new_pass_note.style.display = (new_pass_note.style.display == "flex") ? "none" : "flex";
 }
 
