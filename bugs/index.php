@@ -17,19 +17,25 @@
         $save_bug = "INSERT INTO bugs (bug_title, bug_text, priority, status, is_fixed, added_date) 
                      VALUES (?, ?, ?, ?, ?, now())";
         
-        $stmt = mysqli_prepare($link, $save_bug);
+        $stmt = mysqli_prepare($con, $save_bug);
         mysqli_stmt_bind_param($stmt, "ssssi", $bug_title, $bug_text, $bug_priority, $bug_status, $is_fixed);
         mysqli_stmt_execute($stmt);
         
         // Získanie posledného ID bezpečne
-        $max_id = mysqli_insert_id($link);
+        $max_id = mysqli_insert_id($con);
     
         // Logovanie do app_log
+        $application = "bugs";
         $diary_text = "Minecraft IS: Bol zaznamenaný nový bug s ID $max_id";
-        $log_sql = "INSERT INTO app_log (diary_text, date_added) VALUES (?, now())";
+        $create_record = "INSERT INTO tblapp_log (application, note, date_created) VALUES (?, ?, now())";
         
-        $log_stmt = mysqli_prepare($link, $log_sql);
-        mysqli_stmt_bind_param($log_stmt, "s", $diary_text);
+        // Prepare the statement
+        $log_stmt = mysqli_prepare($con, $create_record);
+        
+        // Bind the parameters
+        mysqli_stmt_bind_param($log_stmt, "ss", $application, $diary_text);  // "ss" indicates two string parameters
+        
+        // Execute the statement
         mysqli_stmt_execute($log_stmt);
     }
 
@@ -46,19 +52,19 @@
     
         if ($bug_id > 0) {
             // Spustiť transakciu
-            mysqli_begin_transaction($link);
+            mysqli_begin_transaction($con);
     
             try {
                 // Odstrániť bug
                 $remove_bug = "DELETE FROM bugs WHERE bug_id=?";
-                $stmt = mysqli_prepare($link, $remove_bug);
+                $stmt = mysqli_prepare($con, $remove_bug);
                 mysqli_stmt_bind_param($stmt, "i", $bug_id);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_close($stmt);
     
                 // Odstrániť komentáre k bugom
                 $delete_comments = "DELETE FROM bugs_comments WHERE bug_id=?";
-                $stmt = mysqli_prepare($link, $delete_comments);
+                $stmt = mysqli_prepare($con, $delete_comments);
                 mysqli_stmt_bind_param($stmt, "i", $bug_id);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_close($stmt);
@@ -66,17 +72,17 @@
                 // Logovanie do denníka
                 $diary_text = "Minecraft IS: Bol vymazaný bug s ID $bug_id";
                 $sql = "INSERT INTO app_log (diary_text, date_added) VALUES (?, NOW())";
-                $stmt = mysqli_prepare($link, $sql);
+                $stmt = mysqli_prepare($con, $sql);
                 mysqli_stmt_bind_param($stmt, "s", $diary_text);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_close($stmt);
     
                 // Commit transakcie
-                mysqli_commit($link);
+                mysqli_commit($con);
     
             } catch (Exception $e) {
-                mysqli_rollback($link); // Ak niečo zlyhá, vráti zmeny späť
-                die("MySQLi ERROR: " . mysqli_error($link));
+                mysqli_rollback($con); // Ak niečo zlyhá, vráti zmeny späť
+                die("MySQLi ERROR: " . mysqli_error($con));
             }
         }
     }
@@ -94,21 +100,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Minecraft IS</title>
-    <link rel="stylesheet" href="css/style.css?<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/bugs.css?<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/style_new.css?<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/bugs.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
-    <script type="text/javascript" defer src="js/bugs.js?<?php echo time(); ?>"></script>
+    <script type="text/javascript" defer src="../js/bugs.js?<?php echo time(); ?>"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
   </head>
   <body>
-        <?php include("includes/header.php") ?>   
-      <div class="main_wrap">
-      <div class="tab_menu">
-          <?php include("includes/menu.php"); ?>
-        </div>    
+      <?php include '../include/header.php'; ?>   
         <div class="main_wrap">
          <div class="content">
               <div class="list">
@@ -135,7 +137,7 @@
                       </select>
 
                       <div class="new_bug_action">
-                        <button type="submit" name="save_bug" class="button small_button">Save</button>
+                        <button type="submit" name="save_bug" class="flat-btn">Save</button>
                       </div>
                </form>
               </div><!-- new bug-->
@@ -150,7 +152,7 @@
 
 
                         $get_bugs = "SELECT * from bugs ORDER BY bug_id DESC LIMIT $itemsPerPage OFFSET $offset";
-                        $result=mysqli_query($link, $get_bugs);
+                        $result=mysqli_query($con, $get_bugs);
                         while ($row = mysqli_fetch_array($result)) {
                           // Sanitizácia údajov na ochranu pred XSS
                           $bug_id = (int) ($row['bug_id'] ?? 0); // ID musí byť číslo
@@ -166,15 +168,15 @@
                           $nr_of_comments = GetCountBugComments($bug_id);
                       
                           // Ak je bug FIXED, zobrazí štítok + mení akčné tlačidlá
-                          $add_comment = "<button type='submit' name='add_comment' class='button small_button' onclick='addNewComment();')><i class='fa fa-comment'></i></button>";
+                          $add_comment = "<button type='submit' name='add_comment' class='flat-btn' onclick='addNewComment();')><i class='fa fa-comment'></i></button>";
                           $fixed_label = $is_fixed ? "<div class='span_fixed'>fixed</div>" : "";
                           $action_buttons = $is_fixed ? 
-                              "<button type='submit' name='see_bug_details' class='button small_button'><i class='fa fa-eye'></i></button>
-                               <button type='submit' name='bug_remove' class='button small_button'><i class='fa fa-times'></i></button>
+                              "<button type='submit' name='see_bug_details' class='flat-btn'><i class='fa fa-eye'></i></button>
+                               <button type='submit' name='bug_remove' class='flat-btn'><i class='fa fa-times'></i></button>
                                {$add_comment}" : // Pridanie komentára aj pre fixed stav
-                              "<button type='submit' name='see_bug_details' class='button small_button'><i class='fa fa-eye'></i></button>
-                               <button type='submit' name='to_fixed' class='button small_button'><i class='fa fa-check'></i></button>
-                               <button type='submit' name='bug_remove' class='button small_button'><i class='fa fa-times'></i></button>
+                              "<button type='submit' name='see_bug_details' class='flat-btn'><i class='fa fa-eye'></i></button>
+                               <button type='submit' name='to_fixed' class='flat-btn'><i class='fa fa-check'></i></button>
+                               <button type='submit' name='bug_remove' class='flat-btn'><i class='fa fa-times'></i></button>
                                {$add_comment}"; // Pridanie komentára aj pre nefixed stav
                           
                       
@@ -202,7 +204,7 @@
                   <?php
                     // Calculate the total number of pages
                     $sql = "SELECT COUNT(*) as total FROM bugs";
-                    $result = mysqli_query($link, $sql);
+                    $result = mysqli_query($con, $sql);
                     
                     $totalItems = 0; // Predvolene nulová hodnota
                     
@@ -216,7 +218,7 @@
                     // Zobrazenie stránkovania
                     echo '<div class="pagination">';
                     for ($i = 1; $i <= $totalPages; $i++) {
-                        echo '<a href="?page=' . $i . '">' . $i . '</a>'; // Opravené úvodzovky
+                        echo '<a class="flat-btn" href="?page=' . $i . '">' . $i . '</a>'; // Opravené úvodzovky
                     }
                     echo '</div>';
                   ?> 
@@ -246,7 +248,7 @@
 
     <dialog class="modal_add_comment">
       <textarea name="comment_text" placeholder="Add a comment here"></textarea>
-      <button type="submit" name="add_comment" class="button small_button">Add</button>
+      <button type="submit" name="add_comment" class="flat-btn">Add</button>
     </dialog>                  
 
 

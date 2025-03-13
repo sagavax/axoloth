@@ -12,7 +12,7 @@ $result = mysqli_query($con, $update_status) or die(mysqli_error($con));
 
 
 // Add diary entry
-
+$application = "bugs";
 $diary_text="Minecraft IS: Bug s id $bug_id status sa zmenil na $bug_status";
-$create_record="INSERT INTO app_log (diary_text, date_added) VALUES ('$diary_text', now())";
+$create_record="INSERT INTO tblapp_log (applicatiom note, date_created) VALUES ('$application','$diary_text', now())";
 $result = mysqli_query($con, $create_record) or die("MySQLi ERROR: ".mysqli_error($con));

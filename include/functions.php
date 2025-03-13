@@ -11,6 +11,17 @@ global $con;
 ?>
 
 <?php
+
+function GetCountBugComments($bug_id){
+	global $con;
+	$query = "SELECT COUNT(*) as nr_of_comms from bugs_comments WHERE bug_id=$bug_id";
+	$result=mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	 $nr_of_comms= $row['nr_of_comms'];
+	return $nr_of_comms;			
+}
+
+
 function data_uri($file, $mime) {
 	$contents = file_get_contents($file);
 	$base64 = base64_encode($contents);
@@ -1215,3 +1226,4 @@ function GetMobileMenu() {
         <li><a href='password_delete{$page_ext_qry}id={$id}' class='remove'>Delete</a></li>
       </ul>";
 }
+

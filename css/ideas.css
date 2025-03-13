@@ -99,9 +99,7 @@ dialog ul li:hover {
     cursor: pointer;
 }
 
-dialog.show {
- 
-}
+
 
 .new_idea form {
     width: 100%;
@@ -114,10 +112,19 @@ dialog.show {
     margin-top: 10px;
     box-sizing: border-box;
     padding:5px;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.new_idea form button {
+.new_idea form select {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 
+
+.new_idea form textarea {
+    min-height:150px;
+    background-color: #eee;
 }
 
 .list,.ideas_list {
@@ -219,11 +226,98 @@ dialog.show {
     margin-top: 0;
 }
 
-.new_idea_action
- {
+.new_idea_action {
     margin-top:10px;    
     display: flex;
     justify-content: flex-end;
     align-items: center;
     height: 50px;
 }
+
+.bug_title,.idea_title,.idea_comm_title {
+    display: flex;
+    height:45px;
+    width: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.idea_comm_title {
+    padding: 10px 10px 20px 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.bug_title, .idea_title {
+    font-weight: bold;
+    padding-left:10px;
+}
+
+.bug_text, .idea_text, .idea_comm_text {
+    padding: 10px 10px 20px 10px;
+/*    min-height: 70px;*/
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding:10px;
+    font-size: 14px;
+  }
+
+  .idea_footer,
+.bug_footer
+ {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:5px;
+    box-sizing: border-box;
+}
+
+.nr_of_comments {
+    display: flex;
+    margin-left: 5px;
+    background: #0b9ed0;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 0px;
+    align-items: center;    
+}
+
+.pagination, .tag_pagination {
+    margin-top:20px;
+    width:100%;
+    display: flex;
+    gap:5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.pagination a {
+    border-radius: 6px;
+}
+
+/* .pagination a, .tag_pagination a {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    border-radius: 5px;
+    color: #fff;
+    background: #aadd77;
+    border-radius: 5px;
+    justify-content: center;
+    color:#222;
+    width: 40px;
+    height: 40px;
+} */
+
+/* .pagination a:hover {
+    background: #222;
+    color:#aadd77;
+} */

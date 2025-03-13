@@ -13,9 +13,5 @@
 
 
         $diary_text="Minecraft IS: Ideas s id $idea_id bola vymazana ";
-            $sql="INSERT INTO app_log (diary_text, date_added) VALUES ('$diary_text',now())";
+            $sql="INSERT INTO tblapp_log (diary_text, date_added) VALUES ('$diary_text',now())";
             $result = mysqli_query($con, $sql) or die("MySQLi ERROR: ".mysqli_error($con));
-
-         echo "<script>alert('Minecraft IS: Ideas s id $idea_id vratend komentarov bola vymazana');
-              window.location.href='ideas.php';
-              </script>";

@@ -1,156 +1,250 @@
 /* Definovanie premenných pre farby */
 :root {
- /*    --color-low: black;
-    --color-medium-text: white;
-    --color-medium-bg: blue;
-    --color-high-bg: orange;
-    --color-critical-bg: red; */
-
-    
-    --color-low: white; /* tmavšia sivá */
-    --color-medium-text: #ffffff;
-    --color-medium-bg: #7286d3; /* tlmená pastelová modrá */
-    --color-high-bg: #e4a07e; /* tlmená pastelová oranžová */
-    --color-critical-bg: #e88b8b; /* tlmená pastelová červená */
-}
-
-/* Základný štýl pre všetky úrovne */
-.status {
-    color: var(--color-low); /* Predvolená farba textu */
-    font-weight: bold;
-}
-
-/* Stredná úroveň - Medium */
-.medium {
-    background-color: var(--color-medium-bg);
-    color: var(--color-medium-text);
-    padding: 5px;
-    border-radius: 4px;
-}
-
-/* Vysoká úroveň - High */
-.high {
-    background-color: var(--color-high-bg);
-    color: var(--color-medium-text);
-    padding: 5px;
-    border-radius: 4px;
-}
-
-/* Kritická úroveň - Critical */
-.critical {
-    background-color: var(--color-critical-bg);
-    color: var(--color-medium-text);
-    padding: 5px;
-    border-radius: 4px;
-}
-
-/* Nízka úroveň - Low */
-.low {
-    background-color: var(--color-low);
-    padding: 5px;
-    border-radius: 4px;
-    color:#555;
-    border:1px #d1d1d1 solid;
-}
-
-.bug_status,.bug_priority {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    border-radius: 6px;
-    width: 100px;
-}
-
-.bug_status:hover,.bug_priority:hover  {
-    cursor: pointer;
-}
-
-.bug_status {
-    border:1px #d1d1d1 solid;
-    
-}
-
-dialog {
-    position: fixed;
-    /* top: 50%;
-    left: 50%; */
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    padding: 1rem;
-    background-color: white;
-    padding:10px;
-    width: 150px;
-}
-
-dialog ul li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-dialog ul li:hover {
-    background-color: lightgray;
-    cursor: pointer;
-}
-
-dialog.show {
- 
-}
-
-.bug_action {
-    height: 100%;
-    display: flex;
-        gap: 5px;
-        border: 1px #d1d1d1 solid;
-        padding: 10px;
-        border-radius: 5px;
-}
-
-.bug_list, .bug_comments_list {
-    margin-top: 30px;
-    width: 100%;
-    height: auto;
-}
-
-.new_bug{
-    padding: 5px;
-}
-
-.bug_comment, .bug_comment_new {
-    background: white;
-    border: 1px #d1d1d1 solid;
-    box-sizing: border-box;
-    padding: 5px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-left: 20px;
-}
-
-.bug_comment::before, .idea_comment::before {
-    content: "";
-              position: absolute;
-              top: 50%;
-              left: -30px;
-              width: 20px;
-              height: 20px;
-              margin-top: -10px;
-              background-color: #fff;
-              border: 1px solid #ddd;
-              border-radius: 50%;
-              z-index: 1;
-  }
-  
-  .bug_comment::after, .idea_comment::after {
+    /*    --color-low: black;
+       --color-medium-text: white;
+       --color-medium-bg: blue;
+       --color-high-bg: orange;
+       --color-critical-bg: red; */
+   
+       
+       --color-low: #495057; /* tmavšia sivá */
+       --color--white: white;  
+       --color-medium-text: #ffffff;
+       --color-medium-bg: #7286d3; /* tlmená pastelová modrá */
+       --color-high-bg: #e4a07e; /* tlmená pastelová oranžová */
+       --color-critical-bg: #e88b8b; /* tlmená pastelová červená */
+       --color-badge-border: #d1d1d1;
+   }
+   
+   /* Základný štýl pre všetky úrovne */
+   .status {
+       color: var(--color-low); /* Predvolená farba textu */
+       font-weight: bold;
+   }
+   
+   /* Stredná úroveň - Medium */
+   .medium {
+       background-color: var(--color-medium-bg);
+       color: var(--color-medium-text);
+       padding: 5px;
+       border-radius: 4px;
+   }
+   
+   /* Vysoká úroveň - High */
+   .high {
+       background-color: var(--color-high-bg);
+       color: var(--color-medium-text);
+       padding: 5px;
+       border-radius: 4px;
+   }
+   
+   /* Kritická úroveň - Critical */
+   .critical {
+       background-color: var(--color-critical-bg);
+       color: var(--color-medium-text);
+       padding: 5px;
+       border-radius: 4px;
+   }
+   
+   /* Nízka úroveň - Low */
+   .low {
+       background-color: var(--color-white);
+       padding: 5px;
+       border-radius: 4px;
+       color:#555;
+       border:1px solid;
+       border-color: var(--color-badge-border);
+   }
+   
+   .bug_status,.bug_priority {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 5px;
+       border-radius: 6px;
+       width: 100px;
+   }
+   
+   .bug_status {
+       border:1px #d1d1d1 solid;
+       
+   }
+   
+   .bug_status,.bug_priority {
+       cursor: pointer;
+   }
+   
+   
+   dialog {
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       border: 1px solid black;
+       padding: 1rem;
+       background-color: white;
+       padding:10px;
+       width: 150px;
+   }
+   
+   dialog ul li {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       width: 100%;
+   }
+   
+   dialog ul li:hover {
+       background-color: lightgray;
+       cursor: pointer;
+   }
+   
+   
+   
+   .new_bug form {
+       width: 100%;
+   }
+   
+   .new_bug form input,.new_bug form textarea, .new_bug form select {
+       width:100%;
+       height:40px;
+       font-weight: bolder;
+       margin-top: 10px;
+       box-sizing: border-box;
+       padding:5px;
+       font-family: 'Open Sans', sans-serif;
+   }
+   
+   .new_bug form select {
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+   }
+   
+   
+   .new_bug form textarea {
+       min-height:150px;
+       background-color: #eee;
+   }
+   
+   .list,.bugs_list {
+       display: flex;
+       flex-direction: column;
+       margin: 70px auto;
+       width: 70%;
+       box-sizing: border-box;
+       padding: 2px;
+       justify-content: center;
+       /*min-height: 100vh;*/
+   }
+   
+    .bugs_list, .bugs_comment_list {
+       margin-top: 30px;
+       width: 100%;
+       height: auto;
+   }
+   
+   .new_bug form{
+       box-sizing: border-box;
+       padding: 10px;
+   
+   }
+   
+   
+   .new_bug, .bug_comment_new,.bug_comment {
+       background: white;
+       border: 1px #d1d1d1 solid;
+       box-sizing: border-box;
+       padding: 5px;
+       border-radius: 5px;
+       display: flex;
+       flex-direction: column;
+       gap: 5px;
+       margin-left: 20px;
+   }
+   
+   
+   
+   .new_bug,
+   .bug_comment_new  {
+       margin-left:0;
+   }
+   
+   .bug_comment_new {
+       margin-left:0;
+   }
+   
+   .bug_comment,.bug_comment_new, .bug_comment,.bug_comment_new  {
+       position: relative;
+       margin-bottom: 10px;
+   }
+   
+   .bug_comment::before, .bug_comment::before {
        content: "";
-              display: table;
-              clear: both;
-  }
-  
-  .bug_title {
+                 position: absolute;
+                 top: 50%;
+                 left: -30px;
+                 width: 20px;
+                 height: 20px;
+                 margin-top: -10px;
+                 background-color: #fff;
+                 border: 1px solid #ddd;
+                 border-radius: 50%;
+                 z-index: 1;
+     }
+     
+     .bug_comment::after, .bug_comment::after {
+          content: "";
+                 display: table;
+                 clear: both;
+     }
+     #note_title, .bug_title,.bug_title,.bug_comm_title {
+       display: flex;
+       height:45px;
+       width: 100%;
+       align-items: center;
+       box-sizing: border-box;
+       position: relative;
+   }
+   
+   .bug_comm_title {
+       padding: 10px 10px 20px 10px;
+       font-weight: bold;
+       font-size: 14px;
+   }
+   
+   
+   .bug_title {
+       font-weight: bold;
+       padding-left:10px;
+   }  
+   
+   .content {
+       height: auto;
+       width: 100%;
+       margin-left: 0;
+       margin-top: 0;
+   }
+   
+   .new_bug_action {
+       margin-top:10px;    
+       display: flex;
+       justify-content: flex-end;
+       align-items: center;
+       height: 50px;
+   }
+
+   .bug {
+    border: 1px #d1d1d1 solid;
+    background: white;
+    margin-top:10px;
+    box-sizing: border-box;
+    padding:5px;
+    /*box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+    transition: box-shadow 83ms;*/
+}
+
+.bug_title,.idea_title,.idea_comm_title {
     display: flex;
     height:45px;
     width: 100%;
@@ -159,7 +253,7 @@ dialog.show {
     position: relative;
 }
 
-.bug_comm_title {
+.idea_comm_title {
     padding: 10px 10px 20px 10px;
     font-weight: bold;
     font-size: 14px;
@@ -170,9 +264,66 @@ dialog.show {
     font-weight: bold;
     padding-left:10px;
 }
-.content {
-    height: auto;
-    width: 100%;
-    margin-left: 0;
-    margin-top: 0;
+
+.bug_text, .idea_text, .idea_comm_text {
+    padding: 10px 10px 20px 10px;
+/*    min-height: 70px;*/
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding:10px;
+    font-size: 14px;
+  }
+
+  .idea_footer,
+.bug_footer
+ {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:5px;
+    box-sizing: border-box;
 }
+
+.nr_of_comments {
+    display: flex;
+    margin-left: 5px;
+    background: #0b9ed0;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 0px;
+    align-items: center;    
+}
+
+.pagination{
+    margin-top:20px;
+    width:100%;
+    display: flex;
+    gap:5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* .pagination a{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    border-radius: 5px;
+    color: #fff;
+    background: #aadd77;
+    border-radius: 5px;
+    justify-content: center;
+    color:#222;
+    width: 40px;
+    height: 40px;
+} */
+
+/* .pagination a:hover {
+    background: #222;
+    color:#aadd77;
+} */

@@ -108,7 +108,7 @@
                                           
                                     } elseif ($is_fixed==1){
 
-                                          echo "<button type='button' title='mark the bug as fixed' class='button small_button' name='reopen_bug'>Reopen</button><div class='span_modpack'>fixed</div>";
+                                          echo "<button type='button' title='mark the bug as fixed' class='flat-btn' name='reopen_bug'>Reopen</button><div class='span_modpack'>fixed</div>";
                                     }        
 
                                           
@@ -135,7 +135,7 @@
                                             echo "<div class='bug_title'>$comm_title</div>";    
                                         }
                                         echo "<div class='bug_text'>$comm_text</div>";
-                                        echo "<div class='bug_comm_action'><form action='' method='post'><input type='hidden' name='comm_id' value=$comm_id><button type='submit' name='delete_comm' class='button small_button'><i class='fa fa-times'></i></button></form></div>";
+                                        echo "<div class='bug_comm_action'><form action='' method='post'><input type='hidden' name='comm_id' value=$comm_id><button type='submit' name='delete_comm' class='flat-btn'><i class='fa fa-times'></i></button></form></div>";
                                     echo "</div>";
                                  }   
                               ?>  
@@ -149,9 +149,9 @@
                                 <div class="bug_comment_action">
                                   <?php
                                         if($is_fixed==0){
-                                            echo "<button name='save_comment' class='button small_button'>save</button>";
+                                            echo "<button name='save_comment' class='flat-btn'>save</button>";
                                         } else if ($is_fixed==1){
-                                            echo "<button name='save_comment' disabled class='button small_button'>save</button>";
+                                            echo "<button name='save_comment' disabled class='flat-btn'>save</button>";
                                         }
                                   ?>  
                                   
