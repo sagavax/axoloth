@@ -926,6 +926,14 @@
             .password_notes header button {
                 margin-right: 5px;
             }
+
+            .password_notes header {
+                background-color: #03a9f4;
+                color :white;
+                border:0px;
+                box-sizing: border-box;
+                padding: 0 10px;
+            }
             
             .password_notes span, .password_tags span {
                 width: 100%;
