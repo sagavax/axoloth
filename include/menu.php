@@ -8,5 +8,7 @@
 				<li><a href="<?php echo APP_PATH; ?>tasks/index.php" target="_self">Tasks</a></li>
 				<li><a href="<?php echo APP_PATH; ?>trading/index.php" target="_self">Trading</a></li>
 				<li><a href="<?php echo APP_PATH; ?>customers/index.php" target="_self">Customers</a></li>
+				<li><a href="<?php echo APP_PATH;?>bugs/index.php" target="_self">Bugs</a></li>
+				<li><a href="<?php echo APP_PATH;?>ideas/index.php" target="_self">Ideas</a></li>
 				<li><a href="<?php echo APP_PATH; ?>inbox.php" target="_self"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
             </ul>

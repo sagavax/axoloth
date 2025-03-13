@@ -198,7 +198,7 @@ if ($row['is_favorite'] == 1) {
               while ($row_notes = mysqli_fetch_array($result_notes)) {
                 $id = $row_notes['id'];
                 $note_text = $row_notes['note_text'];
-                $update_date = $row_notes['updated_date'];
+                $update_date = $row_notes['created_date'];
 
                 echo "<div class='pass_note' note-id='$id'>";
                 echo "<button class='close' type='button' onclick='remove_pass_note($id);'><i class='fa fa-times'></i></button>";

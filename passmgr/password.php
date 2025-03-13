@@ -117,7 +117,7 @@ if ($row['is_favorite'] == 1) {
               echo "</div>";
             }
             ?>
-           </main 
+           </main>
         </div><!-- password notes -->
         <div class="password_tags">
 
