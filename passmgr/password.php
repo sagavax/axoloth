@@ -148,6 +148,28 @@ $result = mysqli_query($con, $sql); // or die("MySQL ERROR: ".mysqli_error());
 
 //echo $sql;
 ?>
+
+<div class="password_notes">
+        <header><span>Notes:</span><button class="flat-btn" type="button" onclick="show_hide_note()";><i class="fa fa-plus"></i></button></header>
+        <div class="pass_notes_body">
+          <div class="pass_note_container">
+          <?php
+              $get_notes = "SELECT * from tblpassword_notes WHERE pass_id=" . $row['PassID'] . " ORDER BY id DESC";
+              $result_notes = mysqli_query($con, $get_notes);
+              while ($row_notes = mysqli_fetch_array($result_notes)) {
+                $id = $row_notes['id'];
+                $note_text = $row_notes['note_text'];
+                $update_date = $row_notes['updated_date'];
+
+                echo "<div class='pass_note' note-id='$id'>";
+                echo "<button class='close' type='button' onclick='remove_pass_note($id);'><i class='fa fa-times'></i></button>";
+                echo $note_text;
+                echo "</div>";
+              }
+              ?>
+          </div><!--pass_note_container -->
+      </div><!--pass_notes_body-->
+      </div><!--password_notes-->
   </div><!-- password_wrap -->
 </div><!--layout-->
 
