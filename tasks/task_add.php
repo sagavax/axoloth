@@ -95,8 +95,6 @@ if (isset($_POST['add_cat'])) {
 
 
 <html>
-<!DOCTYPE>
-
 <head>
 <meta charset="utf-8" />
     <link href="../css/style_new.css?<?php echo time(); ?>" rel="stylesheet" type="text/css">
