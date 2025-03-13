@@ -1,7 +1,7 @@
 <?php session_start();
-if (!isset($_SESSION['login'])) {
+/* if (!isset($_SESSION['login'])) {
 	header("location:index.php");
-}
+} */
 
 include "../include/dbconnect.php";
 include "../include/functions.php";
@@ -75,6 +75,9 @@ if (isset($_POST['update_password'])) {
     <link href="../css/style_new.css?<?php echo time(); ?>" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../css/passmgr.css?<?php echo time(); ?> "type='text/css' >
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css">
+    <script type="text/javascript" src="../js/pass_gen.js" defer></script>
+    <script type="text/javascript" src="../js/pass_note.js" defer></script>
+    <script type="text/javascript" src="../js/tag.js" defer></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <?php include "../include/icon.php"?>
       <title>axoloth - passwords edit</title>
@@ -129,18 +132,18 @@ $row = mysqli_fetch_array($result);
             <td>
                 <select name="customer">
                     <?php
-$cust_id = $row['cust_id'];
-$customer = CustomerName($cust_id);
-echo "<option value=$cust_id selected=\"selected\">$customer</option>";
-$sql1 = "SELECT * from tblcustomers where customer_status='active' ORDER BY customer_name ASC";
-global $con;
-$result1 = mysqli_query($con, $sql1);
-while ($row1 = mysqli_fetch_array($result1)) {
-	$cust_id = $row1['cust_id'];
-	$customer_name = $row1['customer_name'];
-	echo "<option value='$cust_id'>$customer_name</option>";
-}
-?>
+                              $cust_id = $row['cust_id'];
+                              $customer = CustomerName($cust_id);
+                              echo "<option value=$cust_id selected=\"selected\">$customer</option>";
+                              $sql1 = "SELECT * from tblcustomers where customer_status='active' ORDER BY customer_name ASC";
+                              global $con;
+                              $result1 = mysqli_query($con, $sql1);
+                              while ($row1 = mysqli_fetch_array($result1)) {
+                                $cust_id = $row1['cust_id'];
+                                $customer_name = $row1['customer_name'];
+                                echo "<option value='$cust_id'>$customer_name</option>";
+                              }
+                              ?>
 
                                       </select>
 
@@ -209,32 +212,5 @@ while ($row_notes = mysqli_fetch_array($result_notes)) {
       </div><!--pass_notes_body-->
       </div><!--password_notes-->
 
-
-      <div class="password_tags">
-         <header><span>Tags:</span></header>
-          <ul><input type="text" spellcheck="false" id="tag_list"></ul>
-      </div><!--password_tags -->
-    </div><!-- password -->
-  </div><!-- layout-->
-
-
-
-  <div class="pass_tags">
-    <?php
-$get_tags = "SELECT * from tblpassword_tag_list";
-$result_tags = mysqli_query($con, $get_tags);
-while ($tags = mysqli_fetch_array($result_tags)) {
-	$tag_id = $tags['id'];
-	$tags_name = $tags['tag_name'];
-	echo "<span></span>";
-}
-
-?>
-  </div>
-
-
-  <script type="text/javascript" src="../js/pass_gen.js"></script>
-  <script type="text/javascript" src="../js/pass_note.js"></script>
-  <script type="text/javascript" src="../js/tag.js"></script>
 </body>
 
