@@ -99,6 +99,56 @@ dialog ul li:hover {
     cursor: pointer;
 }
 
+.idea {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px #d1d1d1 solid;
+    padding: 3px;
+    background: #fff;
+    min-height: 50px;
+    /*border-radius: 5px;*/
+}
+
+
+.idea_title,.idea_comm_title {
+    display: flex;
+    height:45px;
+    width: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.idea_text, .idea_comm_text {
+    padding: 10px 10px 20px 10px;
+/*    min-height: 70px;*/
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding:10px;
+    font-size: 14px;
+  }
+
+.idea_text {
+    font-size: 18px;
+}
+
+.idea_footer
+ {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:5px;
+    box-sizing: border-box;
+}
+
+.idea_footer {
+    height:40px;
+}
 
 
 .new_idea form {
@@ -106,6 +156,8 @@ dialog ul li:hover {
 }
 
 .new_idea form input,.new_idea form textarea, .new_idea form select {
+    background-color: #eee;
+    border:1px #999 solid;
     width:100%;
     height:40px;
     font-weight: bolder;
@@ -173,23 +225,46 @@ dialog ul li:hover {
     margin-left: 20px;
 }
 
-
+.idea_comment_action
+     {
+        width: 100%;
+    }
 
 .new_idea,
 .idea_comment_new  {
     margin-left:0;
 }
 
-.bug_comment_new {
-    margin-left:0;
-}
 
-.bug_comment,.bug_comment_new, .idea_comment,.idea_comment_new  {
+ .idea_comment,.idea_comment_new  {
     position: relative;
     margin-bottom: 10px;
 }
 
-.bug_comment::before, .idea_comment::before {
+.idea_comment_new h4 {
+    margin-bottom: 10px;
+}
+
+.idea_comment_new form input, .idea_comment_new form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #eee;
+    box-sizing: border-box;
+    border: 1px #999 solid;;
+}
+
+.idea_comment_new form input {
+    height:45px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.idea_comment_new form textarea {
+    min-height:150px;
+    
+}
+
+ .idea_comment::before {
     content: "";
               position: absolute;
               top: 50%;
@@ -331,3 +406,12 @@ dialog ul li:hover {
     background: #222;
     color:#aadd77;
 } */
+
+.idea_comment_action,
+.new_idea_action
+ {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+}

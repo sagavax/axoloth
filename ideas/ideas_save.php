@@ -18,5 +18,10 @@
             
         $application="ideas";
         $diary_text="Minecraft IS: Bola vytvorena nova idea "; 
-        $create_record="INSERT INTO tblapp_log (applicatiom note, date_created) VALUES ('$application','$diary_text', now())";
+        $create_record="INSERT INTO tblapp_log (application, note, date_created) VALUES ('$application','$diary_text', now())";
         $result = mysqli_query($con, $create_record) or die("MySQLi ERROR: ".mysqli_error($con));
+
+        echo "<script>alert('Minecraft IS: Bola vytvorena nova idea');
+        window.location.href='index.php';
+        </script>";
+?>

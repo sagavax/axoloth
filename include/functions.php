@@ -12,10 +12,20 @@ global $con;
 
 <?php
 
+function GetCountIdeaComments($idea_id){
+	global $con;
+	$query = "SELECT COUNT(*) as nr_of_comms from ideas_comments WHERE idea_id=$idea_id";
+	$result=mysqli_query($con, $query) or die("MySQLi ERROR: ".mysqli_error($con));
+	$row = mysqli_fetch_array($result);
+	 $nr_of_comms= $row['nr_of_comms'];
+	return $nr_of_comms;			
+}
+
+
 function GetCountBugComments($bug_id){
 	global $con;
 	$query = "SELECT COUNT(*) as nr_of_comms from bugs_comments WHERE bug_id=$bug_id";
-	$result=mysqli_query($con, $query);
+	$result=mysqli_query($con, $query) or die("MySQLi ERROR: ".mysqli_error($con));
 	$row = mysqli_fetch_array($result);
 	 $nr_of_comms= $row['nr_of_comms'];
 	return $nr_of_comms;			

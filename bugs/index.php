@@ -116,6 +116,7 @@
               <div class="list">
               
               <div class="new_bug">
+                <h3> Report a new bug </h3>
                 <form action="" method="post">
                       <input type="text" name="bug_title" placeholder="bug title here" id="bug_title" autocomplete="off">
                       <textarea name="bug_text" placeholder="Put a bug / error text here" id="bug_text"></textarea>

@@ -40,23 +40,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Minecraft IS</title>
-    <link rel="stylesheet" href="css/style.css?<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/style_new.css?<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/ideas.css?<?php echo time(); ?>">
+    <script src="../js/idea.js?<?php echo time(); ?>" type="text/javascript"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <style type="text/css">
-    </style>
+    <link rel='shortcut icon' href='../a.png'>
 
   </head>
   <body>
-        <?php include("includes/header.php") ?>   
-      <div class="main_wrap">
-      <div class="tab_menu">
-          <?php include("includes/menu.php"); ?>
-        </div>    
-        <div class="main_wrap">
-         <div class="content">
+        <?php include '../include/header.php'; ?>
+        <div id="layout">
+              <div class="content">
                <div class="fab fab-icon-holder" onclick="window.location.href='ideas.php';">
                 <i class="fa fa-arrow-left"></i>
               </div>
@@ -85,7 +81,7 @@
                                     if ($is_applied == 0) {
                                         echo "<form action='' method='post'>";
                                         echo "<input type='hidden' name='idea_id' value='$idea_id'>";
-                                        echo "<button type='submit' name='to_apply' class='button small_button'><i class='fa fa-check'></i></button>";
+                                        echo "<button type='submit' name='to_apply' class='flat-btn'><i class='fa fa-check'></i></button>";
                                         echo "</form>";
                                     } elseif ($is_applied == 1) {
                                         echo "<div class='span_modpack'>Idea applied</div>";
@@ -119,10 +115,10 @@
 
                                         if ($is_applied == 1) {
                                                   // If $is_disabled is 1, add the disabled attribute to the button
-                                                  echo "<button type='submit' name='delete_comm' class='button small_button' disabled><i class='fa fa-times'></i></button>";
+                                                  echo "<button type='submit' name='delete_comm' class='flat-btn' disabled><i class='fa fa-times'></i></button>";
                                               } else {
                                                   // If $is_disabled is not 1, do not add the disabled attribute
-                                                  echo "<button type='submit' name='delete_comm' class='button small_button'><i class='fa fa-times'></i></button>";
+                                                  echo "<button type='submit' name='delete_comm' class='flat-btn'><i class='fa fa-times'></i></button>";
                                               }
                                               echo "</form></div>";
                                     echo "</div>";
@@ -139,9 +135,9 @@
                                 <div class="idea_comment_action">
                                   <?php
                                         if($is_applied==0){
-                                            echo "<button name='save_idea_comment' class='button small_button'>save</button>";
+                                            echo "<button name='save_idea_comment' class='flat-btn'>save</button>";
                                         } else if ($is_applied==1){
-                                            echo "<button name='save_idea_comment' disabled class='button small_button'>save</button>";
+                                            echo "<button name='save_idea_comment' disabled class='flat-btn'>save</button>";
                                         }
                                   ?>  
                                   

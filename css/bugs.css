@@ -106,6 +106,7 @@
    }
    
    .new_bug form input,.new_bug form textarea, .new_bug form select {
+       background-color: #eee;;
        width:100%;
        height:40px;
        font-weight: bolder;
@@ -115,6 +116,11 @@
        font-family: 'Open Sans', sans-serif;
    }
    
+   .new_bug form input {
+    border: 1px #999 solid;
+   }
+
+
    .new_bug form select {
        display: flex;
        align-items: center;
@@ -124,7 +130,7 @@
    
    .new_bug form textarea {
        min-height:150px;
-       background-color: #eee;
+       
    }
    
    .list,.bugs_list {
