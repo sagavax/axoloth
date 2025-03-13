@@ -139,12 +139,12 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 	$ip_address = $_SERVER['REMOTE_ADDR'];
 }
 
-$sql = "INSERT INTO tblpasswords_visitors (pass_id, visitor_ip_address,visited_date) VALUES (" . $row['PassID'] . ",'$ip_address','$actual_date')";
-$result = mysqli_query($con, $sql);
+//$sql = "INSERT INTO tblpasswords_visitors (pass_id, visitor_ip_address,visited_date) VALUES (" . $row['PassID'] . ",'$ip_address','$actual_date')";
+//$result = mysqli_query($con, $sql);
 
 //vlozenie to time liny
 $sql = "INSERT INTO tblpasswords_timeline (pass_id,pass_action, action_time) VALUES (" . $row['PassID'] . ",'password has been visited','$actual_date')";
-$result = mysqli_query($con, $sql); // or die("MySQL ERROR: ".mysqli_error());
+$result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());
 
 //echo $sql;
 ?>
