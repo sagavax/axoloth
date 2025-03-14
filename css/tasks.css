@@ -202,7 +202,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 50px;
         gap:5px;
     }
     
@@ -368,8 +367,6 @@
     
     .task_progress {
         width: 15%;
-        width: 15%;
-        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
