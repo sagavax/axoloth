@@ -10,6 +10,14 @@ dialog_new_task.addEventListener("show", function(event) {
     alert("New task");
 });
 
+dialog_new_task.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON" && event.target.name === "create_task") {
+        alert("Adding new task");;
+        //createNewTask();
+    }
+    });
+
+
 
 if (display_as) {
     display_as.addEventListener("click", function(event) {
@@ -213,4 +221,17 @@ function getProgress(taskId){
     xhttp.open("GET", "task_get_current_progress.php?task_id=" + taskId, true);
     xhttp.send();
     return xhttp.responseText;
+}
+
+function createNewTask() {
+    var task_text = document.querySelector('input[name="new_task_text"]').value;
+    var task_priority = document.querySelector('select[name="new_task_priority"]').value;
+    var task_status = document.querySelector('select[name="new_task_status"]').value;
+    var task_date= document.querySelector('input[name="start_task_date"]').value;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "task_create.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var data = "task_text=" + task_text + "&task_priority=" + task_priority + "&task_status=" + task_status + "&task_date=" + task_date;
+    xhttp.send(data);
 }
