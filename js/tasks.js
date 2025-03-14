@@ -4,7 +4,7 @@ const slider = document.getElementById("slider");
 const slider_value = document.getElementById("slider_value");
 const display_as = document.getElementById("display_as");
 const dialog_new_task = document.querySelector(".dialog_new_task");
-
+var project_progress = document.querySelector(".project_progress");
 
 dialog_new_task.addEventListener("show", function(event) {
     alert("New task");
@@ -12,11 +12,21 @@ dialog_new_task.addEventListener("show", function(event) {
 
 dialog_new_task.addEventListener("click", function(event) {
     if (event.target.tagName === "BUTTON" && event.target.name === "create_task") {
-        alert("Adding new task");;
-        //createNewTask();
+        alert("Adding new task");
+         //createNewTask();
     }
     });
 
+
+    //when hide the progress bar dialog update the progrss bar
+    project_progress.addEventListener("cancel", function(event) {
+    const taskId=sessionStorage.getItem('task_id');
+    const  progressValueFromStorage = sessionStorage.getItem('task_progress');
+    const progressValue = parseFloat(progressValueFromStorage);
+    document.querySelector(`.task[data-task-id='${taskId}'] progress`).value = progressValue;
+    console.log(`Task ${taskId} progress updated to ${progressValue}`);
+    //alert("Hiding new task: "+taskId);
+})
 
 
 if (display_as) {
@@ -47,17 +57,19 @@ tasks.addEventListener("click", function(event) {
     if(event.target.tagName === "PROGRESS") {
         //alert("You clicked on a progress bar");
         var taskId = event.target.closest(".task").getAttribute("data-task-id");
+        sessionStorage.setItem('task_id', taskId);
         console.log(taskId);
         var slide_value = document.getElementById("slide_value");
         // Open the modal for updating progress
-        var project_progress = document.querySelector(".project_progress");
+        
         project_progress.showModal();
         if(project_progress){
             slide_value.innerHTML = event.target.value;
-        var project_progress = document.querySelector(".project_progress");
+        //var project_progress = document.querySelector(".project_progress");
         project_progress.showModal();
         if(project_progress){
-            slide_value.innerHTML = slider.value; 
+            slide_value.innerHTML = slider.value;
+            sessionStorage.setItem("task_progress",slider.value); 
 
             // Update the current slider value (each time you drag the slider handle)
             slider.oninput = function() {
