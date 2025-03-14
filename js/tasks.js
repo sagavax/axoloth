@@ -1,7 +1,70 @@
-document.querySelector(".new_task").addEventListener("click", function() {
+var tasks = document.getElementById("tasks");
+
+const slider = document.getElementById("slider");
+const slider_value = document.getElementById("slider_value");
+const display_as = document.getElementById("display_as");
+const dialog_new_task = document.querySelector(".dialog_new_task");
+
+
+dialog_new_task.addEventListener("show", function(event) {
+    alert("New task");
+});
+
+
+if (display_as) {
+    display_as.addEventListener("click", function(event) {
+        if (event.target.tagName === "BUTTON") {
+            switch (event.target.name) {
+                case "display_as_list":
+                    alert("display as list");
+                    break;
+                case "display_as_group":
+                    alert("display as group");
+                    break;
+                case "display_as_scrum":
+                    alert("display as scrum");
+                    break;
+                case "add_new_task":
+                    alert("add new task");
+                    document.querySelector(".dialog_new_task")?.showModal();
+                    break;
+            }
+        }
+    });
+}
+
+
+
+tasks.addEventListener("click", function(event) {
+    if(event.target.tagName === "PROGRESS") {
+        //alert("You clicked on a progress bar");
+        var taskId = event.target.closest(".task").getAttribute("data-task-id");
+        console.log(taskId);
+        var slide_value = document.getElementById("slide_value");
+        // Open the modal for updating progress
+        var project_progress = document.querySelector(".project_progress");
+        project_progress.showModal();
+        if(project_progress){
+            slide_value.innerHTML = event.target.value;
+        var project_progress = document.querySelector(".project_progress");
+        project_progress.showModal();
+        if(project_progress){
+            slide_value.innerHTML = slider.value; 
+
+            // Update the current slider value (each time you drag the slider handle)
+            slider.oninput = function() {
+                slide_value.innerHTML = slider.value;
+                updateProgress(taskId, slider.value);
+            }
+        }
+    }
+   }
+});
+
+/* document.querySelector(".new_task").addEventListener("click", function() {
     window.location.href = "task_add.php";
 })
-
+ */
 document.getElementById("search_task").addEventListener("keyup", function() {
     search_text = document.getElementById("search_task").value;
     console.log(search_text);
@@ -21,7 +84,11 @@ function ChangeStatus(TaskID, MinTaskID) {
     var id = TaskID;
     var min_task_id = MinTaskID;
     var e = document.getElementById("task_status-" + TaskID);
-    var status = e.options[e.selectedIndex].value;;
+    var status = e.options[e.selectedIndex].value;
+    if(status==="Completed") {
+        alert("Task is completed, can't change status to completed");
+        return;
+    } else{
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("task_status-" + id).innerHTML =
@@ -32,9 +99,11 @@ function ChangeStatus(TaskID, MinTaskID) {
         }
     };
     //xhttp.open("GET", "task_status.php?id="+id+"&min_task_id+"+min_task_id+"&status="+status, true);
-    xhttp.open("GET", "task_status.php?id=" + id + "&status=" + status, true);
-    xhttp.send();
-
+    xhttp.open("POST", "task_status.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var data = "id=" + id + "&status=" + status
+    xhttp.send(data);
+    }
 }
 
 function ChangePriority(TaskID) {
@@ -130,4 +199,18 @@ function remove_task_note(task_note_id) {
     xhttp.open("POST", "task_note_remove.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("task_id=" + task_id);
+}
+
+function updateProgress(taskId, progress) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "task_update_progress.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("task_id=" + taskId + "&progress=" + progress);
+}
+
+function getProgress(taskId){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "task_get_current_progress.php?task_id=" + taskId, true);
+    xhttp.send();
+    return xhttp.responseText;
 }

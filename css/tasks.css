@@ -203,12 +203,13 @@
         align-items: center;
         justify-content: center;
         height: 50px;
+        gap:5px;
     }
     
     #task_maintable select,
     .task_status select,
     .task_priority select {
-        width: 110px;
+        width: 50%;
         padding: 5px;
         font-family: 'Open Sans';
     }
@@ -451,7 +452,8 @@
         background: #fff;
     }
     
-    #new_task input input [type=radio] {
+    #new_task input
+    [type=radio] {
         text-align: left;
         width: 15px;
         float: left;
@@ -559,16 +561,21 @@
         box-sizing: border-box;
     }
     
-    .display_as {
-        height: 30px;
-        width: 30px;
-        background: transparent;
-        border: 0;
-        color: #fff
+    
+    #display_as button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        border-radius: 6px;
+        background-color: transparent;
+        border:1px transparent solid;
+        color:white;
+        
     }
     
-    .display_as:hover {
-        border-radius: 4px;
+    #display_as button:hover {
         border: 1px #fff solid
     }
     
@@ -998,7 +1005,69 @@
         height: 35px;
         align-items: center;
     }
+
+    .project_progress {
+        /*center the progress */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 15%;
+        height: 100px;
+        background: #f9f9f9;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    }
     
+    .progress_inner_wrap {
+        height:100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dialog_new_task {
+        background: #fff;
+        width: 50%;
+        height: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        padding: 20px;
+        z-index: 9999;
+    }
+
+    .dialog_new_task input, .dialog_new_task select{
+        font-family: 'Open sans',Arial, Helvetica, sans-serif;
+        width: 100%;
+        height:45px;
+        box-sizing: border-box;
+        padding: 5px;
+        margin-top:10px;
+        background:#eee;
+        font-size: 14px;
+    }
+
+    .dialog_new_task select {
+        width: 50%;
+        
+    }   
+
+
+    .dialog_new_task_select_wrap{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        gap:5px
+    }
+
+    .new_task_actions{
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     @media (min-width:768px) and (max-width:1199px) {
         .task_status,
         .task_priority {
@@ -1088,7 +1157,7 @@
         }
         .task_date {
             width: 10%;
-            height: 50px;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center
@@ -1106,18 +1175,28 @@
     
     @media (min-width:1601px) {
         .task_date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 10%;
             text-align: center;
-            height: 100%;
         }
+
+        
         .task_status,
         .task_priority {
             display: flex;
-            width: 10%;
+            width: 50%;
             height: 40px;
             align-items: center;
             justify-content: center;
         }
+
+        .task_status select,
+        .task_priority select {
+            width:100%
+        }
+
         .task_text {
             font-weight: normal;
             width: 45%;
