@@ -632,9 +632,8 @@
     }
     
     .task_wrap {
-        width: 100%;
+        width: 50%;
         height: auto;
-        float: left;
     }
     
     .task_note_created {

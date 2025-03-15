@@ -34,6 +34,7 @@ if (isset($_POST['remove_task_note'])) {
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="../js/task.js?<?php echo time(); ?>" defer></script>
     <link rel='shortcut icon' href='../a.png'>
 
     <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
@@ -74,23 +75,23 @@ if (!isset($_GET['task_id'])) {
 
                     <div class="task_preview_body">
                         <?php
-$sql = "SELECT a.id, a.cust_id, a.task_text, a.task_category, a.task_priority,a.start_task_date, a.task_status, a.date_created,a.date_expiration, b.cust_id, b.customer_name FROM tblcustomer_tasks a, tblcustomers b WHERE a.id=$task_id and a.cust_id=b.cust_id;";
-//echo $sql;
-$result = mysqli_query($con, $sql) or die("MySQL ERROR: " . mysqli_error($con));
-$row = mysqli_fetch_array($result);
+                                $sql = "SELECT a.TaskID, a.cust_id, a.task_text, a.task_category, a.task_priority,a.start_task_date, a.task_status, a.date_created,a.date_expiration, b.cust_id, b.customer_name FROM tblcustomer_tasks a, tblcustomers b WHERE a.TaskID=$task_id and a.cust_id=b.cust_id;";
+                                //echo $sql;
+                                $result = mysqli_query($con, $sql) or die("MySQL ERROR: " . mysqli_error($con));
+                                $row = mysqli_fetch_array($result);
 
-?>
+                                ?>
 
-                        <?php
-$task_category = $row['task_category'];
-if ($task_category > 0) {
-	$task_category_name = GetTaskCategoryName($task_category);
-	// echo "Kategoria: ".GetTaskCategoryName($task_category);
-} else {
-	$task_category_name = "";
-}
+                                                        <?php
+                                $task_category = $row['task_category'];
+                                if ($task_category > 0) {
+                                    $task_category_name = GetTaskCategoryName($task_category);
+                                    // echo "Kategoria: ".GetTaskCategoryName($task_category);
+                                } else {
+                                    $task_category_name = "";
+                                }
 
-?>
+                                ?>
 
                         <table>
 

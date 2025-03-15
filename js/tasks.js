@@ -29,6 +29,8 @@ dialog_new_task.addEventListener("click", function(event) {
 })
 
 
+
+
 if (display_as) {
     display_as.addEventListener("click", function(event) {
         if (event.target.tagName === "BUTTON") {
@@ -246,4 +248,16 @@ function createNewTask() {
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     var data = "task_text=" + task_text + "&task_priority=" + task_priority + "&task_status=" + task_status + "&task_date=" + task_date;
     xhttp.send(data);
+}
+
+function animateProgress(currValue, targetValue) {
+    if (currValue < targetValue) { 
+        for (var i = currValue; i < targetValue; i++) {
+            console.log("Progress increasing:", i);
+        }
+    } else if (currValue > targetValue) {
+        for (var i = currValue; i > targetValue; i--) {
+            console.log("Progress decreasing:", i);
+        }
+    }
 }
