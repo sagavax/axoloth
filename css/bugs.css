@@ -204,7 +204,7 @@
                  display: table;
                  clear: both;
      }
-     #note_title, .bug_title,.bug_title,.bug_comm_title {
+     .bug_title,.bug_title,.bug_comm_title {
        display: flex;
        height:45px;
        width: 100%;
@@ -350,3 +350,7 @@
     background: #222;
     color:#aadd77;
 } */
+
+.list h3 {
+    margin-bottom: 15px;
+}

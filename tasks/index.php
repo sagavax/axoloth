@@ -122,7 +122,7 @@ if (isset($_POST['remove_task'])) {
             <?php
 
             //$sql = "SELECT a.id, a.cust_id,a.task_text, a.task_category,a.task_priority,a.date_created,a.task_status,a.percent_done,b.cust_id, b.customer_name FROM tblcustomer_tasks a, tblcustomers b WHERE a.cust_id=b.cust_id  and a.task_status<>'complete'  and task_text like '%" . $string . "%' ORDER BY a.id DESC";
-            $sql = "SELECT a.TaskID, a.cust_id, a.task_text, a.task_category, a.task_priority, a.date_created, a.task_status, a.percent_done, b.cust_id, b.customer_name FROM tblcustomer_tasks a, tblcustomers b WHERE a.cust_id=b.cust_id  and a.task_status<>'complete' ORDER BY a.TaskID DESC";
+            $sql = "SELECT a.TaskID, a.cust_id, a.task_text, a.task_category, a.task_priority, a.date_created, a.task_status, a.percent_done, b.cust_id, b.customer_name FROM tblcustomer_tasks a, tblcustomers b WHERE a.cust_id=b.cust_id  and a.task_status<>'Completed' ORDER BY a.TaskID DESC";
             echo "<ul id='tasks'>";
             $result = mysqli_query($con, $sql) or die("MySQL ERROR: " . mysqli_error($con));
             $num = mysqli_num_rows($result);

@@ -1064,6 +1064,7 @@
         justify-content: flex-end;
     }
 
+
     @media (min-width:768px) and (max-width:1199px) {
         .task_status,
         .task_priority {

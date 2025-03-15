@@ -23,6 +23,36 @@ bug_list.addEventListener('click', function(event) {
 
         modal.showModal();
     }
+    if (event.target.tagName === 'BUTTON') {
+        const bugElement = event.target.closest(".bug");
+        if (!bugElement) return;  // Ochrana pred chybami
+        //const bugId = bugElement.dataset.bug-id; // Použitie dataset namiesto getAttribute
+        const bugId = bugElement.getAttribute('bug-id');
+
+    
+        switch (event.target.name) {
+            case "see_details":
+                console.log(`Bug details for ${bugId}`);
+                break;
+            case "mark_fixed":
+                console.log(`Bug ${bugId} marked as fixed`);
+                // markBugAsFixed(bugId);
+                break;
+            case "bug_remove":
+                console.log(`Bug ${bugId} removed`);
+                // removeBug(bugId);
+                break;
+            case "add_comment":
+                console.log(`Bug ${bugId} comment added`);
+                // addBugComment(bugId);
+                break;
+            case "bug_reopen":
+                console.log(`Bug ${bugId} reopened`);
+                // reopenBug(bugId);
+                break;
+        }
+    }
+    
 });
 
 
@@ -95,9 +125,4 @@ function changeBugPriority(bugId, bugPriority) {
     // Send the request with the videoId and modpackId
     var params = "bug_id=" + encodeURIComponent(bugId) + "&bug_priority=" + encodeURIComponent(bugPriority);
     xhttp.send(params);
-}
-
-
-function addNewComment(bugId) {
-    document.queryselector('.modal_add_comment').showModal();
 }

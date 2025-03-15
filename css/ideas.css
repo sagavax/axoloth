@@ -415,3 +415,7 @@ dialog ul li:hover {
     align-items: center;
     height: 50px;
 }
+
+.list h3 {
+    margin-bottom: 15px;
+}

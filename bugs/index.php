@@ -170,14 +170,14 @@
                           $nr_of_comments = GetCountBugComments($bug_id);
                       
                           // Ak je bug FIXED, zobrazí štítok + mení akčné tlačidlá
-                          $add_comment = "<button type='submit' name='add_comment' class='flat-btn' onclick='addNewComment();')><i class='fa fa-comment'></i></button>";
+                          $add_comment = "<button type='submit' name='add_comment' class='flat-btn')><i class='fa fa-comment'></i></button>";
                           $fixed_label = $is_fixed ? "<div class='span_fixed'>fixed</div>" : "";
                           $action_buttons = $is_fixed ? 
-                              "<button type='submit' name='see_bug_details' class='flat-btn'><i class='fa fa-eye'></i></button>
+                              "<button type='submit' name='see_details' class='flat-btn'><i class='fa fa-eye'></i></button>
                                <button type='submit' name='bug_remove' class='flat-btn'><i class='fa fa-times'></i></button>
                                {$add_comment}" : // Pridanie komentára aj pre fixed stav
-                              "<button type='submit' name='see_bug_details' class='flat-btn'><i class='fa fa-eye'></i></button>
-                               <button type='submit' name='to_fixed' class='flat-btn'><i class='fa fa-check'></i></button>
+                              "<button type='submit' name='see_details' class='flat-btn'><i class='fa fa-eye'></i></button>
+                               <button type='submit' name='mark_fixed' class='flat-btn'><i class='fa fa-check'></i></button>
                                <button type='submit' name='bug_remove' class='flat-btn'><i class='fa fa-times'></i></button>
                                {$add_comment}"; // Pridanie komentára aj pre nefixed stav
                           

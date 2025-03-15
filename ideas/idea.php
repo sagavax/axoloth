@@ -53,9 +53,9 @@
         <?php include '../include/header.php'; ?>
         <div id="layout">
               <div class="content">
-               <div class="fab fab-icon-holder" onclick="window.location.href='ideas.php';">
-                <i class="fa fa-arrow-left"></i>
-              </div>
+              <div class="fab-container">
+               <div class="fab fab-icon-holder" onclick="window.location.href='index.php';"><i class="fa fa-arrow-left"></i> </div>
+              </div><!-- fab container -->
               <div class="list">
                
                   <?php

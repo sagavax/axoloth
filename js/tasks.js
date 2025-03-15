@@ -25,6 +25,7 @@ dialog_new_task.addEventListener("click", function(event) {
     const progressValue = parseFloat(progressValueFromStorage);
     document.querySelector(`.task[data-task-id='${taskId}'] progress`).value = progressValue;
     console.log(`Task ${taskId} progress updated to ${progressValue}`);
+    updateProgress(taskId, slider.value);
     //alert("Hiding new task: "+taskId);
 })
 
@@ -59,8 +60,14 @@ tasks.addEventListener("click", function(event) {
     if(event.target.tagName === "PROGRESS") {
         //alert("You clicked on a progress bar");
         var taskId = event.target.closest(".task").getAttribute("data-task-id");
+        //get the progress bar value    
+        const curProgValue = event.target.value;
+        console.log(curProgValue);
+        sessionStorage.setItem('progress_value', curProgValue);     
+
+
         sessionStorage.setItem('task_id', taskId);
-        console.log(taskId);
+        //console.log(taskId);
         var slide_value = document.getElementById("slide_value");
         // Open the modal for updating progress
         
