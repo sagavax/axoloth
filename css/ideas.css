@@ -246,17 +246,21 @@ dialog ul li:hover {
 }
 
 .idea_comment_new form input, .idea_comment_new form textarea {
+    font-family: 'Open Sans', sans-serif;
     width: 100%;
     margin-bottom: 10px;
     background-color: #eee;
     box-sizing: border-box;
     border: 1px #999 solid;;
+    font-size: 14px;
+    color:#222;
+    box-sizing: border-box;
+    padding: 5px;
 }
 
 .idea_comment_new form input {
     height:45px;
-    box-sizing: border-box;
-    padding: 5px;
+ 
 }
 
 .idea_comment_new form textarea {
