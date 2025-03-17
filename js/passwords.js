@@ -1,10 +1,12 @@
 const passwords = document.querySelector("#passwords");
 var new_pass_note = document.getElementById("pass_note_text");
 var mobile_menus = document.querySelectorAll(".mobile_menu");
+const search_box = document.getElementById("search_password");
+
 
 passwords.addEventListener("click", (event)=>{
     if(event.target.tagName==="BUTTON"){
-        alert("Click!");
+        //alert("Click!");
     }
 })
 
@@ -45,8 +47,10 @@ function AddFavorite(PassID) {
 
         }
     };
-    xhttp.open("GET", "add_favorites.php?id=" + PassID, true);
-    xhttp.send();
+    xhttp.open("POST", "password_favorites_add.php?", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    const data="id=" + PassID;
+    xhttp.send(data);
 }
 
 function RemoveFavorite(PassID) {
@@ -58,8 +62,10 @@ function RemoveFavorite(PassID) {
 
         }
     };
-    xhttp.open("GET", "remove_favorites.php?id=" + PassID, true);
-    xhttp.send();
+    xhttp.open("POST", "password_favorites_remove.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    const data = "id=" + PassID;
+    xhttp.send(data);
 }
 
 function show_pass_details(PassID) {
@@ -91,7 +97,7 @@ function show_as_grid() {
 
 }
 
-const search_box = document.getElementById("search_password");
+
 search_box.addEventListener("keyup", function() {
     search_text = document.getElementById("search_password").value;
     console.log(search_text);
