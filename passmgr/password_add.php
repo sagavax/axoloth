@@ -29,7 +29,7 @@ if (isset($_POST['new_password'])) {
 	
    // Add the new password to the database
    //$password1 = password_hash($password1, PASSWORD_DEFAULT);
-	$sql = "INSERT INTO tblpasswords (cust_id,group_name,system_name,User_name, Password, Category, URL, description,date_added ) VALUES ($cust_id,'$group_name','$system_name','$user_name','$password1','$category','$url','$description','$date_added')";
+	$sql = "INSERT INTO tblpasswords (cust_id,group_name,system_name,User_name, Password, Category, URL, description,date_added ) VALUES ($cust_id,'$group_name','$system_name','$user_name','$password1','$category','$url','$description',now())";
 	$result = mysqli_query($con, $sql) or die("MySQLi ERROR: " . mysqli_error($con));
 
 	$new_pass_id = GetLatestPassword();
@@ -37,8 +37,7 @@ if (isset($_POST['new_password'])) {
 	$curr_app = "passmgr";
 	$diary_text = "Bolo vytvorene nove heslo s id $new_pass_id a systemovym menom <strong>$system_name</strong>";
 	$sql = "INSERT INTO tblapp_log (application, note, date_created) VALUES ('$curr_app','$diary_text',now())";
-	$result = mysqli_query($link1, $sql) or die("MySQLi ERROR: " . mysqli_error($link1));
-	mysqli_close($link1);
+	
 
 	$curr_action = "create_password";
 	$curr_app = "passmgr";
@@ -48,11 +47,10 @@ if (isset($_POST['new_password'])) {
 	$sql = "INSERT INTO tblpasswords_timeline (pass_id,pass_action, action_time) VALUES ($new_pass_id,'password was created',now())";
 	$result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());
 
-	$sql = "INSERT INTO tblcustomer_notes_history (action, app, text_logu, date_added, is_read) VALUES ('$curr_action','$curr_app','$text_logu',now(),0)";
-	//echo $sql;
+	$update_notes_timeline = "INSERT INTO tblcustomer_notes_history (action, app, text_logu, date_added, is_read) VALUES ('$curr_action','$curr_app','$text_logu',now(),0)";
+	$result = mysqli_query($con, $update_notes_timeline) or die("MySQL ERROR: ".mysqli_error());
 
-	$result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());
-	echo "<script>alert('new password $new_pass_id is  has been created');
+		echo "<script>alert('new password $new_pass_id is  has been created');
       location.href='index.php'</script>";
 }
 
@@ -64,6 +62,8 @@ if (isset($_POST['new_password'])) {
    <meta charset="utf-8" />
    <link href="../css/style_new.css?<?php echo time(); ?>" rel="stylesheet" type="text/css" />
    <link href="../css/passmgr.css?<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+   <script src="../js/password_add.js" defer></script>
+   <script src="../js/pass_gen.js" defer></script>
    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
@@ -73,44 +73,17 @@ if (isset($_POST['new_password'])) {
 </head>
 <body>
    <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+/*       ini_set('display_errors', 1);
+      ini_set('display_startup_errors', 1);
+      error_reporting(E_ALL) */;
 ?>
    <script>
 
       //Random password generator- by javascriptkit.com
       //Visit JavaScript Kit (http://javascriptkit.com) for script
       //Credit must stay intact for use
-
-            function LogonType(type_id){
-              //alert(type_id);
-              if(type_id==0){
-                document.new_password.user_name.value="";
-                document.new_password.password.value="";
-              } else if(type_id==1){
-                document.new_password.user_name.value="tmisura@gmail.com";
-                document.new_password.password.value="Thomas$.pa$$w0rd";
-              } else if (type_id==2){
-                document.new_password.user_name.value="tmisura@gmail.com";
-                document.new_password.password.value="YTOKaQHOhXO";
-              } else if (type_id==3) {
-                document.new_password.user_name.value="ftb_axoloth";
-                document.new_password.password.value="g1sqrrprfwb5yhh";
-              } else if (type_id==4) {
-                document.new_password.user_name.value="tmisura";
-                document.new_password.password.value="Toma$.pa$$w0rd";
-            } else if (type_id==5) {
-                document.new_password.user_name.value="tmisura@gmail.com";
-                document.new_password.password.value="28d72uvyesn2eka";
-            }   else if (type_id==6) {
-                document.new_password.user_name.value="sagavax";
-                document.new_password.password.value="sxzec4yytboelcj";
-            }   else if(type_id==7){
-                document.new_password.user_name.value="tmisura@gmail.com";
-                document.new_password.password.value="642vol5mmedfrxs";
-            }
-            }
+    
+ 
       </script>
 
    <?php
@@ -126,15 +99,14 @@ include '../include/header.php';
                      <select name="customer_id">
                         <option>-- Choose the customer -- </option>
                            <?php
-global $con;
-$sql = "SELECT cust_id, customer_name from tblcustomers WHERE customer_status='active'";
-$result = mysqli_query($con, $sql) or die("MySQL ERROR: " . mysqli_error());
-while ($row = mysqli_fetch_array($result)) {
-	$cust_id = $row['cust_id'];
-	$customer_name = $row['customer_name'];
-	echo "<option value='$cust_id'>$customer_name</option>";
-}
-?>
+                              $sql = "SELECT cust_id, customer_name from tblcustomers WHERE customer_status='active'";
+                              $result = mysqli_query($con, $sql) or die("MySQL ERROR: " . mysqli_error());
+                              while ($row = mysqli_fetch_array($result)) {
+                                 $cust_id = $row['cust_id'];
+                                 $customer_name = $row['customer_name'];
+                                 echo "<option value='$cust_id'>$customer_name</option>";
+                              }
+                              ?>
                      </select>
                   </td>
                </tr>
@@ -196,5 +168,5 @@ while ($row = mysqli_fetch_array($result)) {
       <!-- wrap -->
    </div>
    <!-- layout-->
-   <script src="../js/pass_gen.js"></script>
+   
 </body>

@@ -1,3 +1,20 @@
+
+document.addEventListener("DOMContentLoaded", () => {
+    const passwordField = document.getElementById("password");
+    if (passwordField) {
+        // Nastav heslo pri načítaní stránky
+        passwordField.value = generate_password();
+
+        // Nastav nové heslo pri zaostrení
+        passwordField.addEventListener("focus", () => {
+            passwordField.value = generate_password();
+        });
+    } else {
+        console.error("Prvok s ID 'password' neexistuje.");
+    }
+});
+
+
 const keys = {
     upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     lowerCase: "abcdefghijklmnopqrstuvwxyz",
@@ -22,16 +39,21 @@ const getKey = [
 
 
 function generate_password() {
-    console.log("Starting generate password....");
+    console.log("Začínam generovať heslo...");
     const passwordBox = document.getElementById("password");
-    const length = 15
+    const getKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+    const length = 15;
     let password = "";
-    //console.log(getKey);
-    while (length > password.length) {
+
+    while (password.length < length) {
         let keyToAdd = getKey[Math.floor(Math.random() * getKey.length)];
-        password += keyToAdd();
+        password += keyToAdd;
     }
+
     passwordBox.value = password;
+    console.log("Vygenerované heslo:", password);
+
+    return password;
 }
 
 
@@ -63,3 +85,5 @@ function get_host_name(url) {
         document.getElementById("system_name").value = full_base_url;
     }
 }
+
+

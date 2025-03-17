@@ -18,8 +18,8 @@ include "../include/functions.php";
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<script src="../js/index.js?<?php echo time(); ?>" defer></script>
-    <script src="../js/passmgr.js?<?php echo time(); ?>" defer></script>
-    <script type="text/javascript" src="../js/pass_note.js?<?php echo time(); ?>" defer></script>
+    <script src="../js/passwords.js?<?php echo time(); ?>" defer></script>
+    <script src="../js/pass_note.js?<?php echo time(); ?>" defer></script>
     <link rel='shortcut icon' href='../a.png'>
     <title>axoloth - Passwords</title>
 

@@ -1,7 +1,7 @@
-if(window.scrollY==0){
+/* if(window.scrollY==0){
  //user scrolled to the top of the page
     document.querySelector(".pass_tags").style.top="20px";
-}
+} */
 
 
 function save_note(id) {
