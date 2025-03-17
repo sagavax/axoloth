@@ -81,116 +81,113 @@ include '../include/header.php';
                     </tr>
 
                     <?php
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
-$page_ext = ".php";
-$page_ext_qry = $page_ext . "?";
-$sql_order = "ORDER BY PassID DESC"; //defaultne zotriedenie
+                         error_reporting(E_ERROR | E_WARNING | E_PARSE);
+                         $page_ext = ".php";
+                         $page_ext_qry = $page_ext . "?";
+                         $sql_order = "ORDER BY PassID DESC"; //defaultne zotriedenie
 
-//sekcia kde osetrujem stavy ked kliknem na nejaky link
+                         //sekcia kde osetrujem stavy ked kliknem na nejaky link
 
-$sql = "SELECT DISTINCT * FROM tblpasswords WHERE is_archived=0 ORDER BY PassID DESC";
+                         $sql = "SELECT DISTINCT * FROM tblpasswords WHERE is_archived=0 ORDER BY PassID DESC";
 
 
-$limit = 20; // Počet záznamov na stránku
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$start = ($page - 1) * $limit;
+                         $limit = 20; // Počet záznamov na stránku
+                         $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+                         $start = ($page - 1) * $limit;
 
-// Najskôr získaj počet všetkých záznamov
-$sql_count = "SELECT COUNT(*) as total FROM tblpasswords"; // Zmeň "table_name" na správnu tabuľku
-$result_count = mysqli_query($con, $sql_count);
-$row_count = mysqli_fetch_assoc($result_count);
-$total_pages = $row_count['total'];
+                         // Najskôr získaj počet všetkých záznamov
+                         $sql_count = "SELECT COUNT(*) as total FROM tblpasswords"; // Zmeň "table_name" na správnu tabuľku
+                         $result_count = mysqli_query($con, $sql_count);
+                         $row_count = mysqli_fetch_assoc($result_count);
+                         $total_pages = $row_count['total'];
 
-if ($total_pages == 0) {
-    echo "<script>toastr.error('Záznam neexistuje')</script>";
-} else {
-    $sql = "SELECT * FROM tblpasswords ORDER BY PassID DESC LIMIT $start, $limit"; // Pôvodný SQL dotaz s LIMIT
-    $result = mysqli_query($con, $sql);
+                         if ($total_pages == 0) {
+                             echo "<script>alert('Záznam neexistuje')</script>";
+                         } else {
+                             $sql = "SELECT * FROM tblpasswords ORDER BY PassID DESC LIMIT $start, $limit"; // Pôvodný SQL dotaz s LIMIT
+                             $result = mysqli_query($con, $sql);
 
-    $stages = 3;
-    $prev = $page - 1;
-    $next = $page + 1;
-    $lastpage = ceil($total_pages / $limit);
-    $LastPagem1 = $lastpage - 1;
-    $targetpage = "index.php"; // Alebo nastav relevantnú hodnotu
+                             $stages = 3;
+                             $prev = $page - 1;
+                             $next = $page + 1;
+                             $lastpage = ceil($total_pages / $limit);
+                             $LastPagem1 = $lastpage - 1;
+                             $targetpage = "index.php"; // Alebo nastav relevantnú hodnotu
 
-    $paginate = "";
-    if ($lastpage > 1) {
-        $paginate .= "<div class='paginate'>";
+                             $paginate = "";
+                             if ($lastpage > 1) {
+                                 $paginate .= "<div class='paginate'>";
 
-        // Predošlá stránka
-        if ($page > 1) {
-            $paginate .= "<a href='{$targetpage}?page=$prev'>« Predošlá</a>";
-        } else {
-            $paginate .= "<span class='disabled'>« Predošlá</span>";
-        }
+                                 // Predošlá stránka
+                                 if ($page > 1) {
+                                     $paginate .= "<a href='{$targetpage}?page=$prev'>« Predošlá</a>";
+                                 } else {
+                                     $paginate .= "<span class='disabled'>« Predošlá</span>";
+                                 }
 
-        // Stránkovanie
-        for ($counter = 1; $counter <= $lastpage; $counter++) {
-            if ($counter == $page) {
-                $paginate .= "<span class='current'>$counter</span>";
-            } else {
-                $paginate .= "<a href='{$targetpage}?page=$counter'>$counter</a>";
-            }
-        }
+                                 // Stránkovanie
+                                 for ($counter = 1; $counter <= $lastpage; $counter++) {
+                                     if ($counter == $page) {
+                                         $paginate .= "<span class='current'>$counter</span>";
+                                     } else {
+                                         $paginate .= "<a href='{$targetpage}?page=$counter'>$counter</a>";
+                                     }
+                                 }
 
-        // Nasledujúca stránka
-        if ($page < $lastpage) {
-            $paginate .= "<a href='{$targetpage}?page=$next'>Nasledujúca »</a>";
-        } else {
-            $paginate .= "<span class='disabled'>Nasledujúca »</span>";
-        }
+                                 // Nasledujúca stránka
+                                 if ($page < $lastpage) {
+                                     $paginate .= "<a href='{$targetpage}?page=$next'>Nasledujúca »</a>";
+                                 } else {
+                                     $paginate .= "<span class='disabled'>Nasledujúca »</span>";
+                                 }
 
-        $paginate .= "</div>";
-    }
-}
-	//echo $total_pages.' Results';
-	// pagination
-	// echo $paginate;
-
-	while ($row = mysqli_fetch_array($result)) {
-		$id = (int) $row["PassID"];
-		$cust_id = (int) $row['cust_id'];
-		$customer_name = CustomerName($cust_id);
-		$group_name = $row['group_name'];
-		$system_name = $row['system_name'];
-		$user_name = $row['user_name'];
-		$password = $row['password'];
-		$category = $row['category'];
-		$url = $row['url'];
-		$description = $row['description'];
-		$is_favorite = (int) $row['is_favorite'];
-	
-		echo "<tr>";
-		echo "<td class='hasTooltip' data-href='{$url}' pass-id='{$id}'><b>{$system_name}</b></td>";
-		echo "<td>{$user_name}</td>";
-	
-		// Obľúbené položky
-		echo "<td>
-				<div id='fav-{$id}' class='fav_id'>
-					<a href='#' onclick='" . ($is_favorite ? "RemoveFavorite({$id})" : "AddFavorite({$id})") . "'>
-						<i class='fa" . ($is_favorite ? "s" : "r") . " fa-star'></i>
-					</a>
-				</div>
-			  </td>";
-	
-		// Akcie
-		echo "<td>
-				<div class='pass_actions_wrap'>
-					<button type='button' class='btn-small' onclick='view_pass({$id})' title='View'><i class='fas fa-eye'></i></button>
-					<button type='button' class='btn-small' onclick='show_add_note({$id})' title='Add note'><i class='fas fa-plus'></i></button>
-					<button type='button' class='btn-small' onclick='edit_pass({$id})' title='Edit'><i class='fas fa-edit'></i></button>
-					<button type='button' class='btn-small' onclick='archive_pass({$id})' title='Archive'><i class='fas fa-archive'></i></button>
-					<button type='button' class='btn-small' onclick='clone_pass({$id})' title='Clone'><i class='fas fa-copy'></i></button>
-					<button type='button' class='btn-small remove' onclick='remove_pass({$id})' title='Remove'><i class='fas fa-times'></i></button>
-				</div>
-			  </td>";
-	
-		echo "</tr>";
-	}
-	
-?>
-                                </table>
+                                 $paginate .= "</div>";
+                             }
+                         }               
+                          
+                         while ($row = mysqli_fetch_array($result)) {
+                            $id = (int) $row["PassID"];
+                            $cust_id = (int) $row['cust_id'];
+                            $customer_name = CustomerName($cust_id);
+                            $group_name = $row['group_name'];
+                            $system_name = $row['system_name'];
+                            $user_name = $row['user_name'];
+                            $password = $row['password'];
+                            $category = $row['category'];
+                            $url = $row['url'];
+                            $description = $row['description'];
+                            $is_favorite = (int) $row['is_favorite'];
+                        
+                            echo "<tr>";
+                            echo "<td class='hasTooltip' data-href='{$url}'><b>{$system_name}</b></td>";
+                            echo "<td>{$user_name}</td>";
+                        
+                            // Obľúbené položky
+                            echo "<td>
+                                    <div id='fav-{$id}' class='fav_id'>
+                                        <a href='#' onclick='" . ($is_favorite ? "RemoveFavorite({$id})" : "AddFavorite({$id})") . "'>
+                                            <i class='fa" . ($is_favorite ? "s" : "r") . " fa-star'></i>
+                                        </a>
+                                    </div>
+                                </td>";
+                        
+                            // Akcie
+                            echo "<td>
+                                    <div class='pass_actions_wrap'>
+                                        <button type='button' class='btn-small' onclick='view_pass({$id})' title='View'><i class='fas fa-eye'></i></button>
+                                        <button type='button' class='btn-small' onclick='show_add_note({$id})' title='Add note'><i class='fas fa-plus'></i></button>
+                                        <button type='button' class='btn-small' onclick='edit_pass({$id})' title='Edit'><i class='fas fa-edit'></i></button>
+                                        <button type='button' class='btn-small' onclick='archive_pass({$id})' title='Archive'><i class='fas fa-archive'></i></button>
+                                        <button type='button' class='btn-small' onclick='clone_pass({$id})' title='Clone'><i class='fas fa-copy'></i></button>
+                                        <button type='button' class='btn-small remove' onclick='remove_pass({$id})' title='Remove'><i class='fas fa-times'></i></button>
+                                    </div>
+                                </td>";
+                        
+                            echo "</tr>";
+                        }
+                        
+                    ?>       
+                         </table>
                     <?php echo $paginate; ?>
                 </div><!-- passwords -->
           </div><!-- passwords wrapper -->
