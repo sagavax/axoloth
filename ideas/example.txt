@@ -1,0 +1,1 @@
+INSERT into ideas_comments (idea_id,idea_comm_header, idea_comment, comment_date) VALUES (34,'','pri vytvoreni noveho hesla sa predvyplni navrh na nove heslo',now())
