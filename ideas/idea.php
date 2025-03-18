@@ -134,11 +134,11 @@
                                 
                                 <div class="idea_comment_action">
                                   <?php
-                                        if($is_applied==0){
-                                            echo "<button name='save_idea_comment' class='flat-btn'>save</button>";
-                                        } else if ($is_applied==1){
-                                            echo "<button name='save_idea_comment' disabled class='flat-btn'>save</button>";
-                                        }
+                                    if($is_applied==0){
+                                        echo "<button name='save_idea_comment' class='flat-btn'>save</button>";
+                                    } else if ($is_applied==1){
+                                        echo "<button name='save_idea_comment' disabled class='flat-btn'>save</button>";
+                                    }    
                                   ?>  
                                   
                                 </div>

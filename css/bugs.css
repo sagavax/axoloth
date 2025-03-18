@@ -11,8 +11,9 @@
        --color--white: white;  
        --color-medium-text: #ffffff;
        --color-medium-bg: #7286d3; /* tlmená pastelová modrá */
-       --color-high-bg: #e4a07e; /* tlmená pastelová oranžová */
-       --color-critical-bg: #e88b8b; /* tlmená pastelová červená */
+       /*--color-high-bg: #e4a07e; /* tlmená pastelová oranžová */
+       --color-high-bg: #ef7f48;
+       --color-critical-bg: #ec5050; /* tlmená pastelová červená */
        --color-badge-border: #d1d1d1;
    }
    
