@@ -96,7 +96,7 @@
 
                                 $get_comments = "SELECT * from ideas_comments wHERE idea_id=$idea_id";
                                 //echo $get_comments;
-                                $result_comment=mysqli_query($con, $get_comments);
+                                $result_comment=mysqli_query($con, $get_comments) or die("mysqli query failed");
                                  while ($row_comment = mysqli_fetch_array($result_comment)) {
                                     $comm_id = $row_comment['comm_id'];
                                     $comm_title = $row_comment['idea_comm_header'];
@@ -120,7 +120,7 @@
                                                   // If $is_disabled is not 1, do not add the disabled attribute
                                                   echo "<button type='submit' name='delete_comm' class='flat-btn'><i class='fa fa-times'></i></button>";
                                               }
-                                              echo "</form></div>";
+                                            echo "</form></div>";
                                     echo "</div>";
                                  }   
                               ?>  
