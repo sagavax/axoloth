@@ -1124,6 +1124,18 @@
                 cursor: pointer;
             }
 
+            .btn-small-white {
+                padding: 6px 10px;
+                color: #555;
+                border: 1px #fff solid;
+                border-radius: 2px;
+                background: #fff;
+            }
+            
+            .btn-small-white:hover {
+                background: #fff;
+            }
+
             @media only screen and (max-width:767px) {
                 #right_panel {
                     display: none;

@@ -1,12 +1,5 @@
-<?php session_start();
-/* $_SESSION['url'] = $_SERVER['REQUEST_URI'];
-if (!isset($_SESSION['login'])) {
-	header("location:index.php");
-} */
-
-?>
-
 <?php include "../include/dbconnect.php";?>
+<?php include "../include/functions.php";?>
 <?php include_once "../include/config.php";?>
 
 <!DOCTYPE html>
@@ -126,34 +119,20 @@ if ($row['is_favorite'] == 1) {
 
 
       <?php
-$actual_date = date('Y-m-d H:i:s');
-global $con;
-$sql = "UPDATE tblpasswords SET hits=hits+1, date_hit=now() WHERE PassID=" . $row['PassID'];
-$result = mysqli_query($con, $sql);
+              $actual_date = date('Y-m-d H:i:s');
+              global $con;
+              $sql = "UPDATE tblpasswords SET hits=hits+1, date_hit=now() WHERE PassID=" . $row['PassID'];
+              $result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error($con));
+           
+              //vlozenie to time liny
+              $sql = "INSERT INTO tblpasswords_timeline (pass_id,pass_action, action_time) VALUES (" . $row['PassID'] . ",'password has been visited','$actual_date')";
+              $result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());
 
-//logovanie visitora
-if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-	//check ip from share internet
-	$ip_address = $_SERVER['HTTP_CLIENT_IP'];
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-	//to check ip is pass from proxy
-	$ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
-} else {
-	$ip_address = $_SERVER['REMOTE_ADDR'];
-}
+              //echo $sql;
+              ?>
 
-//$sql = "INSERT INTO tblpasswords_visitors (pass_id, visitor_ip_address,visited_date) VALUES (" . $row['PassID'] . ",'$ip_address','$actual_date')";
-//$result = mysqli_query($con, $sql);
-
-//vlozenie to time liny
-$sql = "INSERT INTO tblpasswords_timeline (pass_id,pass_action, action_time) VALUES (" . $row['PassID'] . ",'password has been visited','$actual_date')";
-$result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());
-
-//echo $sql;
-?>
-
-  </div><!-- password_wrap -->
-</div><!--layout-->
+                </div><!-- password_wrap -->
+              </div><!--layout-->
 
 <script>
   

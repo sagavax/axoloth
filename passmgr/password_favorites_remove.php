@@ -16,10 +16,4 @@
     //vlozenie to timeliny
     $sql="INSERT INTO tblpasswords_timeline (pass_id,pass_action, action_time) VALUES ($pass_id,'removed from favorites',now())";
     $result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());   
-  
-
-    //vlozenie to note history
-    $sql="INSERT INTO tblcustomer_notes_history (action, app, text_logu, date_added, is_read) VALUES ('$curr_action','$curr_app','$text_logu',now(),0)";
-    $result = mysqli_query($con, $sql) or die("MySQL ERROR: ".mysqli_error());
-   
  
